@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pink: #FF66C4;
+  --color-pink-light: rgba(255, 102, 196, 0.12);
+}
+
+body {
+  overflow-x: hidden;
+}
