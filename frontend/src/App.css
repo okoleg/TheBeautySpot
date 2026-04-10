@@ -26,6 +26,37 @@
   background-clip: text;
 }
 
+/* ── Buttons ── */
+.btn-primary {
+  position: relative;
+  display: inline-block;
+  padding: 14px 36px;
+  font-family: 'Jura', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 999px;
+  background: #FF66C4;
+  box-shadow: 0 4px 20px rgba(255, 102, 196, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(255, 102, 196, 0.5);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+  box-shadow: 0 3px 12px rgba(255, 102, 196, 0.3);
+}
+
+.btn-small {
+  padding: 10px 22px;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
 /* Hover glow card */
 .card-glow {
   position: relative;

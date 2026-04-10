@@ -34,7 +34,7 @@ function App() {
           href="https://thebeautyspotma.com"
           target="_blank"
           rel="noreferrer"
-          className="bg-[#FF66C4] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:opacity-80 transition-opacity"
+          className="btn-primary btn-small"
         >
           Book Now
         </a>
@@ -61,7 +61,7 @@ function App() {
           href="https://thebeautyspotma.com"
           target="_blank"
           rel="noreferrer"
-          className="animate-fade-up delay-300 bg-[#FF66C4] text-white font-semibold px-10 py-4 rounded-full text-base hover:opacity-80 transition-opacity"
+          className="animate-fade-up delay-300 btn-primary"
         >
           Book an Appointment
         </a>
@@ -140,7 +140,7 @@ function App() {
           href="https://thebeautyspotma.com"
           target="_blank"
           rel="noreferrer"
-          className="bg-[#FF66C4] text-white font-semibold px-12 py-4 rounded-full text-base hover:opacity-80 transition-opacity"
+          className="btn-primary"
         >
           Book Now
         </a>
