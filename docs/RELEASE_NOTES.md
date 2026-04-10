@@ -2,6 +2,18 @@
 
 ---
 
+## v0.3.0 — 2026-04-10
+
+### What's New
+- Logo converted from PNG to SVG (vector — crisp at any size)
+- Three logo variants saved in `assets/logo/`: black SVG, pink SVG, original PNG
+- Black SVG logo used in the header
+- Favicon updated to pink circle with "THE BEAUTY SPOT." text
+- Logo responsive sizing: smaller on mobile, larger on desktop
+- Nav padding adjusted for mobile proportional spacing
+
+---
+
 ## v0.2.0 — 2026-04-10
 
 ### What's New

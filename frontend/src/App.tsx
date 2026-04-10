@@ -21,8 +21,8 @@ function App() {
     <div className="min-h-screen flex flex-col font-sans text-neutral-800 bg-white">
 
       {/* NAV */}
-      <header className={`sticky top-0 z-20 flex items-center justify-between px-8 py-5 backdrop-blur-md border-b transition-[background-color,border-color,box-shadow] duration-300 ${scrolled ? 'bg-white/80 border-[#FF66C4]/10 shadow-sm' : 'bg-transparent border-transparent'}`}>
-        <span className="font-bold text-lg tracking-tight text-black">The Beauty Spot</span>
+      <header className={`sticky top-0 z-20 flex items-center justify-between px-4 py-3 md:px-8 md:py-5 backdrop-blur-md border-b transition-[background-color,border-color,box-shadow] duration-300 ${scrolled ? 'bg-white/80 border-[#FF66C4]/10 shadow-sm' : 'bg-transparent border-transparent'}`}>
+        <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-52 md:w-72 object-contain" />
         <nav className="hidden md:flex gap-8 text-sm text-neutral-500">
           {['Services', 'About', 'Contact'].map((item) => (
             <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-[#FF66C4] transition-colors">
