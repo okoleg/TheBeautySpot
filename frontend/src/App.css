@@ -29,7 +29,9 @@
 /* ── Buttons ── */
 .btn-primary {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 14px 36px;
   font-family: 'Jura', Arial, sans-serif;
   font-weight: 700;
@@ -55,6 +57,7 @@
   padding: 10px 22px;
   font-size: 13px;
   letter-spacing: 1px;
+  text-align: center;
 }
 
 /* Hover glow card */

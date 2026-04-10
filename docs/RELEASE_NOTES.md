@@ -2,6 +2,24 @@
 
 ---
 
+## v0.4.0 — 2026-04-10
+
+### What's New
+- 5 design versions selectable via floating switcher (bottom-right corner)
+  - V1: Pink Classic (original)
+  - V2: Soft & Minimal — cream/rose palette
+  - V3: Dark Luxury — black & gold
+  - V4: Bold Editorial — stark black & white, sharp typography
+  - V5: Glam Gradient — deep purple/pink
+- Version switcher uses `?v=1..5` URL params
+- Self-hosted fonts (Jura, Montserrat via @fontsource) — no Google CDN
+- Icons via react-icons (SVG, tree-shaken) — no icon font CDN
+- Phone number in header — clickable to call, icon-only on mobile
+- Footer redesigned — black background with inverted logo
+- Shared data extracted to `src/data.ts`
+
+---
+
 ## v0.3.0 — 2026-04-10
 
 ### What's New
