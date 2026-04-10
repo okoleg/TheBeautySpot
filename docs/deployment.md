@@ -5,11 +5,36 @@ Firebase Hosting (Google)
 
 ## Project Info
 
-| Key            | Value                              |
-|----------------|------------------------------------|
-| Project ID     | `thebeautyspot-3e54c`              |
-| Live URL       | https://thebeautyspot-3e54c.web.app |
-| Firebase Console | https://console.firebase.google.com/project/thebeautyspot-3e54c |
+| Key              | Value                                                                      |
+|------------------|----------------------------------------------------------------------------|
+| Project ID       | `thebeautyspot-3e54c`                                                      |
+| Live URL         | https://thebeautyspot-3e54c.web.app                                        |
+| Firebase Console | https://console.firebase.google.com/project/thebeautyspot-3e54c            |
+| GitHub           | https://github.com/okoleg/TheBeautySpot                                    |
+
+---
+
+## Deploy & Release (use `/deploy` skill)
+
+```bash
+# 1. Build
+cd frontend && npm run build
+
+# 2. Deploy
+cd .. && firebase deploy --only hosting
+
+# 3. Update docs/RELEASE_NOTES.md with new version entry
+
+# 4. Commit (no Co-Authored-By lines)
+git add <files>
+git commit -m "vX.Y.Z — summary"
+
+# 5. Tag and push
+git tag vX.Y.Z
+git push && git push --tags
+```
+
+---
 
 ## First-Time Setup
 
@@ -25,15 +50,7 @@ Firebase Hosting (Google)
 
 3. Project is already configured via `firebase.json` and `.firebaserc` — no `firebase init` needed.
 
-## Deploy
-
-```bash
-# 1. Build the app
-cd frontend && npm run build
-
-# 2. Go back to root and deploy
-cd .. && firebase deploy --only hosting
-```
+---
 
 ## Configuration Files
 
