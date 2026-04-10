@@ -14,6 +14,8 @@ import {
 } from 'react-icons/md'
 import './App.css'
 
+const HERO_PHOTOS = ['/Iryna.jpg', '/VikaIryna.jpg', '/Vika.jpg']
+
 const SERVICES = [
   { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.' },
   { Icon: MdFaceRetouchingNatural, title: 'Facials & Skin Care', desc: 'Personalized skin treatments for a radiant, healthy glow.' },
@@ -29,6 +31,7 @@ const NAV_LINKS = [
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [photoIndex, setPhotoIndex] = useState(0)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -36,11 +39,16 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    const timer = setInterval(() => setPhotoIndex(i => (i + 1) % HERO_PHOTOS.length), 4000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div className="min-h-screen flex flex-col font-sans text-neutral-800 bg-white">
 
       {/* NAV */}
-      <header className={`sticky top-0 z-20 flex items-center justify-between px-4 py-3 md:px-8 md:py-5 backdrop-blur-md border-b transition-[background-color,border-color,box-shadow] duration-300 ${scrolled ? 'bg-white/80 border-[#FF66C4]/10 shadow-sm' : 'bg-transparent border-transparent'}`}>
+      <header className={`sticky top-0 z-20 flex items-center justify-between px-4 py-3 md:px-8 md:py-5 backdrop-blur-md border-b border-[#FF66C4]/10 shadow-sm transition-[background-color] duration-300 ${scrolled ? 'bg-white/80' : 'bg-white/60'}`}>
         <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-52 md:w-72 object-contain" />
         <nav className="hidden md:flex gap-8 text-base text-neutral-500">
           {NAV_LINKS.map(({ label, href }) => (
@@ -66,35 +74,45 @@ function App() {
       </header>
 
       {/* HERO */}
-      <section className="relative flex flex-col items-center text-center px-6 pt-28 pb-32 overflow-hidden min-h-[600px]">
+      <section className="flex flex-col md:flex-row min-h-screen overflow-hidden">
 
-        {/* Background photos — mobile: VikaIryna only, desktop: all three */}
-        <div className="absolute inset-0 flex pointer-events-none md:hidden">
-          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/VikaIryna.jpg)' }} />
+        {/* Left column: empty */}
+        <div className="hidden md:block flex-1 bg-white" />
+
+        {/* Right column: photos as background + text */}
+        <div className="flex-1 relative flex flex-col justify-center items-start px-12 py-24 overflow-hidden">
+
+          {/* Background photos — crossfade slideshow */}
+          {HERO_PHOTOS.map((photo, i) => (
+            <div
+              key={photo}
+              className="absolute inset-0 bg-cover bg-top bg-no-repeat pointer-events-none"
+              style={{
+                backgroundImage: `url(${photo})`,
+                opacity: i === photoIndex ? 0.9 : 0,
+                transition: 'opacity 1s ease-in-out',
+              }}
+            />
+          ))}
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/30 pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(255,102,196,0.06),transparent)] pointer-events-none" />
+
+          <div className="animate-float absolute top-16 right-12 text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
+          <div className="animate-float delay-300 absolute bottom-16 right-24 text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
+
+          <h1 className="animate-fade-up delay-100 text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black mb-5 relative z-10">
+            Your space for beauty,<br />
+            <span className="text-gradient">care &amp; inspiration</span>
+          </h1>
+          <p className="animate-fade-up delay-200 text-lg text-neutral-400 max-w-md leading-relaxed mb-10 relative z-10">
+            Where beauty and professionalism come together to highlight your uniqueness.
+          </p>
+          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2 relative z-10">
+            <MdCalendarMonth size={18} /> Book an Appointment
+          </a>
         </div>
-        <div className="absolute inset-0 hidden md:flex pointer-events-none">
-          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/Iryna.jpg)' }} />
-          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/VikaIryna.jpg)' }} />
-          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/Vika.jpg)' }} />
-        </div>
-
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/30 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(255,102,196,0.08),transparent)] pointer-events-none" />
-
-        <div className="animate-float absolute top-24 left-[14%] text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
-        <div className="animate-float delay-300 absolute bottom-16 right-[16%] text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
-
-        <h1 className="animate-fade-up delay-100 text-5xl md:text-7xl font-bold leading-tight tracking-tight text-black mb-5 relative z-10">
-          Your space for beauty,<br />
-          <span className="text-gradient">care &amp; inspiration</span>
-        </h1>
-        <p className="animate-fade-up delay-200 text-lg text-neutral-400 max-w-lg leading-relaxed mb-10 relative z-10">
-          Where beauty and professionalism come together to highlight your uniqueness.
-        </p>
-        <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2 relative z-10">
-          <MdCalendarMonth size={18} /> Book an Appointment
-        </a>
       </section>
 
       {/* STATS */}
@@ -179,14 +197,14 @@ function App() {
           <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">Get In Touch</p>
           <h2 className="text-4xl font-bold text-black tracking-tight">Find Us</h2>
         </div>
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
           {[
             { Icon: MdCall,        label: 'Phone',     value: '+1 617 319 2254',                              href: 'tel:+16173192254' },
             { Icon: MdLocationOn,  label: 'Location',  value: '123 Highland Ave\nNeedham, MA 02494\nFloor 3', href: undefined },
-            { Icon: MdSchedule,    label: 'Hours',     value: 'Mon–Fri: 10 am – 7 pm\nSat: 10 am – 6 pm\nSun: closed', href: undefined },
+            { Icon: MdSchedule,    label: 'Hours',     value: 'Mon–Fri: 10am–7pm\nSat: 10am–6pm\nSun: closed', href: undefined },
             { Icon: MdPhotoCamera, label: 'Instagram', value: '@thebeautyspot_ma',                            href: 'https://www.instagram.com/thebeautyspot_ma/' },
           ].map(({ Icon, label, value, href }) => (
-            <div key={label} className="card-glow px-8 py-7 flex flex-col items-center gap-3 text-center min-w-[180px]">
+            <div key={label} className="card-glow px-6 py-7 flex flex-col items-center gap-3 text-center">
               <Icon size={24} className="text-[#FF66C4]" />
               <span className="text-xs font-bold tracking-[2px] uppercase text-[#FF66C4]">{label}</span>
               {href ? (

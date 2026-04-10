@@ -2,6 +2,18 @@
 
 ---
 
+## v0.6.0 — 2026-04-10
+
+### What's New
+- Hero section redesigned to two-column layout: left column empty, right column has photos + text
+- Background photos cycle as a crossfade slideshow (3 photos, 4s interval, 1s fade transition)
+- Background photos anchor to top (`bg-top`) so faces are always visible
+- Hero section height set to full viewport (`min-h-screen`)
+- Header border and shadow now always visible (not only on scroll)
+- Contact cards changed to equal-size grid (4 columns desktop, 2 columns mobile)
+
+---
+
 ## v0.5.0 — 2026-04-10
 
 ### What's New
