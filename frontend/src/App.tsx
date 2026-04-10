@@ -10,6 +10,7 @@ import {
   MdWorkspacePremium,
   MdCall,
   MdPhotoCamera,
+  MdSchedule,
 } from 'react-icons/md'
 import './App.css'
 
@@ -65,38 +66,67 @@ function App() {
       </header>
 
       {/* HERO */}
-      <section className="relative flex flex-col items-center text-center px-6 pt-28 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(255,102,196,0.1),transparent)] pointer-events-none" />
+      <section className="relative flex flex-col items-center text-center px-6 pt-28 pb-32 overflow-hidden min-h-[600px]">
+
+        {/* Background photos — mobile: VikaIryna only, desktop: all three */}
+        <div className="absolute inset-0 flex pointer-events-none md:hidden">
+          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/VikaIryna.jpg)' }} />
+        </div>
+        <div className="absolute inset-0 hidden md:flex pointer-events-none">
+          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/Iryna.jpg)' }} />
+          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/VikaIryna.jpg)' }} />
+          <div className="flex-1 bg-cover bg-center bg-no-repeat opacity-90" style={{ backgroundImage: 'url(/Vika.jpg)' }} />
+        </div>
+
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(255,102,196,0.08),transparent)] pointer-events-none" />
+
         <div className="animate-float absolute top-24 left-[14%] text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
         <div className="animate-float delay-300 absolute bottom-16 right-[16%] text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
-        <p className="animate-fade-up text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-5 flex items-center gap-1">
-          <MdLocationOn size={14} /> Boston, MA
-        </p>
-        <h1 className="animate-fade-up delay-100 text-5xl md:text-7xl font-bold leading-tight tracking-tight text-black mb-5">
+        <h1 className="animate-fade-up delay-100 text-5xl md:text-7xl font-bold leading-tight tracking-tight text-black mb-5 relative z-10">
           Your space for beauty,<br />
           <span className="text-gradient">care &amp; inspiration</span>
         </h1>
-        <p className="animate-fade-up delay-200 text-lg text-neutral-400 max-w-lg leading-relaxed mb-10">
+        <p className="animate-fade-up delay-200 text-lg text-neutral-400 max-w-lg leading-relaxed mb-10 relative z-10">
           Where beauty and professionalism come together to highlight your uniqueness.
         </p>
-        <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2">
+        <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2 relative z-10">
           <MdCalendarMonth size={18} /> Book an Appointment
         </a>
       </section>
 
       {/* STATS */}
-      <section className="bg-black flex items-center justify-center gap-16 py-14 px-6">
-        <div className="flex flex-col items-center text-white gap-1">
-          <MdWorkspacePremium size={32} className="text-[#FF66C4] mb-1" />
-          <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">10+</span>
-          <span className="text-sm opacity-50 tracking-widest uppercase">Years of Experience</span>
+      <section className="bg-black px-6 py-16 flex flex-col items-center gap-10">
+        {/* Why us */}
+        <div className="text-center max-w-2xl flex flex-col gap-4">
+          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Why Us?</p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
+            Your favorite destination for beauty
+          </h2>
+          <p className="text-neutral-400 leading-relaxed">
+            The Beauty Spot is the space of beauty, impeccable service, comfort, and aesthetics brought to life.
+            Here you can fully trust professionals and enjoy the experience.
+          </p>
         </div>
-        <div className="w-px h-16 bg-white/10" />
-        <div className="flex flex-col items-center text-white gap-1">
-          <MdFavorite size={32} className="text-[#FF66C4] mb-1" />
-          <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">7,000+</span>
-          <span className="text-sm opacity-50 tracking-widest uppercase">Happy Clients</span>
+
+        {/* Divider */}
+        <div className="w-16 h-px bg-[#FF66C4]/30" />
+
+        {/* Numbers */}
+        <div className="flex items-center justify-center gap-16">
+          <div className="flex flex-col items-center text-white gap-1">
+            <MdWorkspacePremium size={32} className="text-[#FF66C4] mb-1" />
+            <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">10+</span>
+            <span className="text-sm opacity-50 tracking-widest uppercase">Years of Experience</span>
+          </div>
+          <div className="w-px h-16 bg-white/10" />
+          <div className="flex flex-col items-center text-white gap-1">
+            <MdFavorite size={32} className="text-[#FF66C4] mb-1" />
+            <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">7,000+</span>
+            <span className="text-sm opacity-50 tracking-widest uppercase">Happy Clients</span>
+          </div>
         </div>
       </section>
 
@@ -117,15 +147,27 @@ function App() {
 
       {/* ABOUT */}
       <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about">
-        <div className="max-w-xl mx-auto text-center flex flex-col gap-5">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Our Story</p>
-          <h2 className="text-4xl font-bold tracking-tight text-white">About Us</h2>
-          <p className="text-neutral-400 text-lg leading-relaxed">
-            The Beauty Spot started as a small, cozy studio and grew into a beloved space
-            thanks to its warm atmosphere and commitment to quality. We provide accessible,
-            professional beauty services where every client feels valued, comfortable, and special.
-          </p>
-          <p className="text-neutral-500 text-base leading-relaxed italic">
+        <div className="max-w-5xl mx-auto flex flex-col gap-10">
+          {/* Title — full width */}
+          <div className="text-center flex flex-col gap-3">
+            <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Our Story</p>
+            <h2 className="text-4xl font-bold tracking-tight text-white">About Us</h2>
+          </div>
+          {/* Two columns */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <p className="text-neutral-400 text-lg leading-relaxed">
+              The Beauty Spot was created to provide women with a space where high-quality services
+              meet comfort and attention to detail. The founders, faced with the challenge of finding
+              accessible and professional beauty services, decided to create their own space where
+              every client feels valued and special.
+            </p>
+            <p className="text-neutral-400 text-lg leading-relaxed">
+              It all began in a small, cozy studio where they personally welcomed their first guests.
+              Thanks to its warm atmosphere and exceptional service quality, the salon quickly
+              gained popularity and grew into the beloved space it is today.
+            </p>
+          </div>
+          <p className="text-neutral-500 text-base leading-relaxed italic text-center">
             "The space of beauty, impeccable service, comfort, and aesthetics — all in one place."
           </p>
         </div>
@@ -139,9 +181,10 @@ function App() {
         </div>
         <div className="flex flex-wrap justify-center gap-6">
           {[
-            { Icon: MdCall,        label: 'Phone',     value: '+1 617 319 2254',           href: 'tel:+16173192254' },
-            { Icon: MdLocationOn,  label: 'Location',  value: 'Boston, Massachusetts\nFree parking in front & back', href: undefined },
-            { Icon: MdPhotoCamera, label: 'Instagram', value: '@thebeautyspot_ma',         href: 'https://www.instagram.com/thebeautyspot_ma/' },
+            { Icon: MdCall,        label: 'Phone',     value: '+1 617 319 2254',                              href: 'tel:+16173192254' },
+            { Icon: MdLocationOn,  label: 'Location',  value: '123 Highland Ave\nNeedham, MA 02494\nFloor 3', href: undefined },
+            { Icon: MdSchedule,    label: 'Hours',     value: 'Mon–Fri: 10 am – 7 pm\nSat: 10 am – 6 pm\nSun: closed', href: undefined },
+            { Icon: MdPhotoCamera, label: 'Instagram', value: '@thebeautyspot_ma',                            href: 'https://www.instagram.com/thebeautyspot_ma/' },
           ].map(({ Icon, label, value, href }) => (
             <div key={label} className="card-glow px-8 py-7 flex flex-col items-center gap-3 text-center min-w-[180px]">
               <Icon size={24} className="text-[#FF66C4]" />

@@ -2,6 +2,18 @@
 
 ---
 
+## v0.5.0 — 2026-04-10
+
+### What's New
+- Hero section: background photos now at full opacity (90%), Boston MA label removed
+- Stats section (V1 & V3): added "Why Us?" copy — eyebrow, heading, and descriptive paragraph from original site
+- About section: expanded to two-column layout with full founders story from original site; title remains full-width centered
+- Contact section: address updated to 123 Highland Ave, Needham, MA 02494, Floor 3
+- Contact section: added Work Hours card (Mon–Fri 10am–7pm, Sat 10am–6pm, Sun closed)
+- V3 renamed to "Photo Hero" — synced to latest V1 design
+
+---
+
 ## v0.4.0 — 2026-04-10
 
 ### What's New
