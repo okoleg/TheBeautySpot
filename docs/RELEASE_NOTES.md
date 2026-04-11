@@ -2,6 +2,14 @@
 
 ---
 
+## v0.10.0 — 2026-04-11
+
+### What's New
+- Added "Our Team" section with Team photo, centered title, professional bio text, and quote
+- Team section uses two-column layout on desktop (photo left, text right), stacks on mobile
+
+---
+
 ## v0.9.0 — 2026-04-11
 
 ### What's New

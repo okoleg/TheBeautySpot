@@ -283,6 +283,41 @@ function App() {
         </div>
       </section>
 
+      {/* TEAM */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-5xl mx-auto flex flex-col gap-12">
+          {/* Title */}
+          <div className="text-center">
+            <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">The People Behind The Magic</p>
+            <h2 className="text-4xl font-bold tracking-tight text-black">Our Team</h2>
+          </div>
+          {/* Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Photo */}
+          <div className="overflow-hidden rounded-2xl shadow-lg">
+            <img src="/Team.jpg" alt="Our Team" className="w-full h-full object-cover object-top" />
+          </div>
+          {/* Text */}
+          <div className="flex flex-col gap-5">
+            <p className="text-neutral-500 text-lg leading-relaxed">
+              Our team of dedicated beauty professionals brings years of expertise and a genuine passion
+              for their craft. Each specialist is continuously trained in the latest techniques to ensure
+              you receive the highest quality service.
+            </p>
+            <p className="text-neutral-500 text-lg leading-relaxed">
+              We believe that great beauty work starts with listening — understanding your goals,
+              your style, and what makes you feel your best. Every visit is a personalized experience
+              designed just for you.
+            </p>
+            <div className="w-10 h-px bg-[#FF66C4]/40" />
+            <p className="text-neutral-400 text-base italic">
+              "We don't just do beauty — we build confidence."
+            </p>
+          </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section className="py-24 px-6 max-w-5xl mx-auto w-full flex flex-col items-center gap-14" id="contact">
         <div className="text-center">
