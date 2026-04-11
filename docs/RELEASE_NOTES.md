@@ -2,6 +2,18 @@
 
 ---
 
+## v0.7.0 — 2026-04-11
+
+### What's New
+- Hero left column: Instagram-style 3×3 collage grid from assets/collage photos
+- Collage cells: hover effect enlarges both the container and image (scale + shadow)
+- Collage visible on mobile (square aspect ratio cells) and desktop (fills container height)
+- Special Offers section: card redesigned — square corners, white bracket decorations outside card, black Book Now button
+- Special Offers: date range and bio text removed, phone number with icon kept
+- Text content in hero right column moved to bottom of column so faces are unobstructed
+
+---
+
 ## v0.6.0 — 2026-04-10
 
 ### What's New

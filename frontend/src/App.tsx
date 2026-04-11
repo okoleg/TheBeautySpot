@@ -14,7 +14,7 @@ import {
 } from 'react-icons/md'
 import './App.css'
 
-const HERO_PHOTOS = ['/Iryna.jpg', '/VikaIryna.jpg', '/Vika.jpg']
+const HERO_PHOTOS = ['/VikaIryna.jpg', '/Iryna.jpg', '/Vika.jpg']
 
 const SERVICES = [
   { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.' },
@@ -74,13 +74,19 @@ function App() {
       </header>
 
       {/* HERO */}
-      <section className="flex flex-col md:flex-row min-h-screen overflow-hidden">
+      <section className="flex flex-col-reverse md:flex-row min-h-screen overflow-hidden">
 
-        {/* Left column: empty */}
-        <div className="hidden md:block flex-1 bg-white" />
+        {/* Left column: collage grid */}
+        <div className="grid flex-1 grid-cols-3 grid-rows-3 overflow-hidden">
+          {[1,2,3,4,5,6,7,8,9].map(n => (
+            <div key={n} className="relative overflow-hidden transition-all duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl aspect-square md:aspect-auto">
+              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 hover:scale-110" style={{ backgroundImage: `url(/collage${n}.jpg)` }} />
+            </div>
+          ))}
+        </div>
 
         {/* Right column: photos as background + text */}
-        <div className="flex-1 relative flex flex-col justify-center items-start px-12 py-24 overflow-hidden">
+        <div className="flex-1 relative flex flex-col justify-end items-center text-center px-12 pb-20 pt-24 overflow-hidden">
 
           {/* Background photos — crossfade slideshow */}
           {HERO_PHOTOS.map((photo, i) => (
@@ -89,7 +95,7 @@ function App() {
               className="absolute inset-0 bg-cover bg-top bg-no-repeat pointer-events-none"
               style={{
                 backgroundImage: `url(${photo})`,
-                opacity: i === photoIndex ? 0.9 : 0,
+                opacity: i === photoIndex ? 1 : 0,
                 transition: 'opacity 1s ease-in-out',
               }}
             />
@@ -145,6 +151,34 @@ function App() {
             <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">7,000+</span>
             <span className="text-sm opacity-50 tracking-widest uppercase">Happy Clients</span>
           </div>
+        </div>
+      </section>
+
+      {/* OFFERS */}
+      <section className="bg-black py-20 px-6 flex flex-col items-center gap-10">
+        <div className="text-center">
+          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">Limited Time</p>
+          <h2 className="text-4xl font-bold text-white tracking-tight">Special Offers</h2>
+        </div>
+        <div className="relative p-5">
+          {/* Top-left bracket */}
+          <span className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white/70" />
+          {/* Bottom-right bracket */}
+          <span className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white/70" />
+        <div className="bg-[#FF66C4] rounded-none px-14 py-12 flex flex-col items-center gap-3 text-center shadow-[0_0_60px_rgba(255,102,196,0.3)]">
+          <h3 className="text-2xl font-bold tracking-[4px] uppercase text-black">Special Deals</h3>
+          <div className="w-8 h-px bg-black/30 my-1" />
+          <span className="text-6xl font-bold text-black tracking-tight leading-none">$25 OFF</span>
+          <p className="text-xs font-bold tracking-[2px] uppercase text-black/60">For your first visit · New clients only</p>
+          <div className="w-8 h-px bg-black/30 my-1" />
+          <a href="tel:+16173192254" className="flex items-center gap-2 text-sm font-bold text-black">
+            <MdCall size={16} /> 617-319-2254
+          </a>
+          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer"
+            className="mt-1 inline-flex items-center justify-center px-8 py-3 rounded-full bg-black text-white text-xs font-bold tracking-widest uppercase hover:opacity-80 transition-opacity">
+            Book Now
+          </a>
+        </div>
         </div>
       </section>
 
