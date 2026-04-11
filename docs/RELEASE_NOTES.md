@@ -2,6 +2,18 @@
 
 ---
 
+## v0.9.0 — 2026-04-11
+
+### What's New
+- Hero slideshow: each photo now has its own slogan with fade transition (no flicker/shift)
+- Hero slideshow: interval increased to 6 seconds
+- Hero dots: fixed size so container never shifts on active change
+- Hero white box: fixed min-height with centered content to prevent layout shifts
+- Hero: frosted strip and button spacing polished for both mobile and desktop
+- Mobile: white box shifted lower, smaller font and tighter spacing
+
+---
+
 ## v0.8.0 — 2026-04-11
 
 ### What's New

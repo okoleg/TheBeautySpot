@@ -15,7 +15,11 @@ import {
 } from 'react-icons/md'
 import './App.css'
 
-const HERO_PHOTOS = ['/VikaIryna.jpg', '/Iryna.jpg', '/Vika.jpg']
+const HERO_PHOTOS = [
+  { src: '/VikaIryna.jpg', heading: 'Your space for beauty,', headingSpan: 'care & inspiration' },
+  { src: '/Iryna.jpg',     heading: 'Where beauty and professionalism', headingSpan: 'meet your uniqueness.' },
+  { src: '/Vika.jpg',      heading: 'Feel confident,', headingSpan: 'feel like yourself.' },
+]
 
 const SERVICES = [
   { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.' },
@@ -33,6 +37,8 @@ const NAV_LINKS = [
 function App() {
   const [scrolled, setScrolled] = useState(false)
   const [photoIndex, setPhotoIndex] = useState(0)
+  const [textIndex, setTextIndex] = useState(0)
+  const [textVisible, setTextVisible] = useState(true)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
@@ -41,9 +47,28 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const advanceTo = (i: number) => {
+    setPhotoIndex(i)
+    setTextVisible(false)
+    setTimeout(() => {
+      setTextIndex(i)
+      setTextVisible(true)
+    }, 400)
+  }
+
   const startTimer = () => {
     if (timerRef.current) clearInterval(timerRef.current)
-    timerRef.current = setInterval(() => setPhotoIndex(i => (i + 1) % HERO_PHOTOS.length), 4000)
+    timerRef.current = setInterval(() => {
+      setPhotoIndex(cur => {
+        const next = (cur + 1) % HERO_PHOTOS.length
+        setTextVisible(false)
+        setTimeout(() => {
+          setTextIndex(next)
+          setTextVisible(true)
+        }, 400)
+        return next
+      })
+    }, 6000)
   }
 
   useEffect(() => {
@@ -52,7 +77,7 @@ function App() {
   }, [])
 
   const goToPhoto = (i: number) => {
-    setPhotoIndex(i)
+    advanceTo(i)
     startTimer()
   }
 
@@ -98,15 +123,15 @@ function App() {
         </div>
 
         {/* Right column: photos as background + text */}
-        <div className="flex-1 relative flex flex-col justify-end items-center text-center pb-20 overflow-hidden">
+        <div className="flex-1 relative flex flex-col justify-end items-center text-center overflow-hidden">
 
           {/* Background photos — crossfade slideshow */}
           {HERO_PHOTOS.map((photo, i) => (
             <div
-              key={photo}
+              key={photo.src}
               className="absolute inset-0 bg-cover bg-top bg-no-repeat pointer-events-none"
               style={{
-                backgroundImage: `url(${photo})`,
+                backgroundImage: `url(${photo.src})`,
                 opacity: i === photoIndex ? 1 : 0,
                 transition: 'opacity 1s ease-in-out',
               }}
@@ -120,27 +145,29 @@ function App() {
           <div className="animate-float absolute top-16 right-12 text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
           <div className="animate-float delay-300 absolute bottom-16 right-24 text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
-          <div className="relative z-10 w-full py-3 bg-white/50 backdrop-blur-md flex flex-col items-center text-center gap-2 mt-32">
-          <h1 className="animate-fade-up delay-100 text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black">
-            Your space for beauty,<br />
-            <span className="text-gradient">care &amp; inspiration</span>
-          </h1>
-          {/* Dots */}
-          <div className="flex items-center gap-3">
-            {HERO_PHOTOS.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goToPhoto(i)}
-                className={`rounded-full transition-all duration-300 cursor-pointer border-2 ${i === photoIndex ? 'w-4 h-4 bg-[#FF66C4] border-[#FF66C4]' : 'w-3 h-3 bg-white/40 border-neutral-400 hover:border-neutral-700'}`}
-              />
-            ))}
+          <div className="relative z-10 w-full py-2 md:py-3 bg-white/50 backdrop-blur-md flex flex-col items-center justify-center text-center gap-1 md:gap-2 mt-80 md:mt-32" style={{ minHeight: '110px' }}>
+            <h1
+              className="text-xl md:text-4xl font-bold leading-tight tracking-tight text-black"
+              style={{ opacity: textVisible ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}
+            >
+              {HERO_PHOTOS[textIndex].heading}<br />
+              <span className="text-gradient">{HERO_PHOTOS[textIndex].headingSpan}</span>
+            </h1>
+            {/* Dots */}
+            <div className="flex items-center gap-3">
+              {HERO_PHOTOS.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goToPhoto(i)}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer border-2 ${i === photoIndex ? 'bg-[#FF66C4] border-[#FF66C4]' : 'bg-white/40 border-neutral-400 hover:border-neutral-700'}`}
+                />
+              ))}
+            </div>
           </div>
-          <p className="animate-fade-up delay-200 text-lg text-neutral-600 max-w-md leading-relaxed">
-            Where beauty and professionalism come together to highlight your uniqueness.
-          </p>
-          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2">
-            <MdCalendarMonth size={18} /> Book an Appointment
-          </a>
+          <div className="relative z-10 mt-6 mb-6 md:mt-10 md:mb-10">
+            <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
+              <MdCalendarMonth size={18} /> Book an Appointment
+            </a>
           </div>
         </div>
       </section>
