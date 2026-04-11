@@ -2,6 +2,17 @@
 
 ---
 
+## v0.8.0 — 2026-04-11
+
+### What's New
+- Hero: frosted glass strip (white/50, backdrop-blur) spans full width of right column
+- Hero: slideshow dots indicator — 3 clickable dots, active is pink, clicking resets auto-advance timer
+- Hero: dots positioned between h1 and subtitle inside the frosted strip
+- Special Offers: Instagram link with icon added below heading, follow-us copy added
+- Special Offers: white bracket decorations outside card, square corners, black Book Now button
+
+---
+
 ## v0.7.0 — 2026-04-11
 
 ### What's New

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { FaInstagram } from 'react-icons/fa'
 import {
   MdAutoAwesome,
   MdFaceRetouchingNatural,
@@ -32,6 +33,7 @@ const NAV_LINKS = [
 function App() {
   const [scrolled, setScrolled] = useState(false)
   const [photoIndex, setPhotoIndex] = useState(0)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -39,10 +41,20 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const startTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current)
+    timerRef.current = setInterval(() => setPhotoIndex(i => (i + 1) % HERO_PHOTOS.length), 4000)
+  }
+
   useEffect(() => {
-    const timer = setInterval(() => setPhotoIndex(i => (i + 1) % HERO_PHOTOS.length), 4000)
-    return () => clearInterval(timer)
+    startTimer()
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
   }, [])
+
+  const goToPhoto = (i: number) => {
+    setPhotoIndex(i)
+    startTimer()
+  }
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-neutral-800 bg-white">
@@ -86,7 +98,7 @@ function App() {
         </div>
 
         {/* Right column: photos as background + text */}
-        <div className="flex-1 relative flex flex-col justify-end items-center text-center px-12 pb-20 pt-24 overflow-hidden">
+        <div className="flex-1 relative flex flex-col justify-end items-center text-center pb-20 overflow-hidden">
 
           {/* Background photos — crossfade slideshow */}
           {HERO_PHOTOS.map((photo, i) => (
@@ -108,16 +120,28 @@ function App() {
           <div className="animate-float absolute top-16 right-12 text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
           <div className="animate-float delay-300 absolute bottom-16 right-24 text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
-          <h1 className="animate-fade-up delay-100 text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black mb-5 relative z-10">
+          <div className="relative z-10 w-full py-3 bg-white/50 backdrop-blur-md flex flex-col items-center text-center gap-2 mt-32">
+          <h1 className="animate-fade-up delay-100 text-5xl md:text-6xl font-bold leading-tight tracking-tight text-black">
             Your space for beauty,<br />
             <span className="text-gradient">care &amp; inspiration</span>
           </h1>
-          <p className="animate-fade-up delay-200 text-lg text-neutral-400 max-w-md leading-relaxed mb-10 relative z-10">
+          {/* Dots */}
+          <div className="flex items-center gap-3">
+            {HERO_PHOTOS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToPhoto(i)}
+                className={`rounded-full transition-all duration-300 cursor-pointer border-2 ${i === photoIndex ? 'w-4 h-4 bg-[#FF66C4] border-[#FF66C4]' : 'w-3 h-3 bg-white/40 border-neutral-400 hover:border-neutral-700'}`}
+              />
+            ))}
+          </div>
+          <p className="animate-fade-up delay-200 text-lg text-neutral-600 max-w-md leading-relaxed">
             Where beauty and professionalism come together to highlight your uniqueness.
           </p>
-          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2 relative z-10">
+          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2">
             <MdCalendarMonth size={18} /> Book an Appointment
           </a>
+          </div>
         </div>
       </section>
 
@@ -156,9 +180,16 @@ function App() {
 
       {/* OFFERS */}
       <section className="bg-black py-20 px-6 flex flex-col items-center gap-10">
-        <div className="text-center">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">Limited Time</p>
+        <div className="text-center flex flex-col gap-3">
+          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Limited Time</p>
           <h2 className="text-4xl font-bold text-white tracking-tight">Special Offers</h2>
+          <p className="text-neutral-400 max-w-md leading-relaxed">
+            We constantly run special offers and deals. Follow us for the latest updates!
+          </p>
+          <a href="https://www.instagram.com/thebeautyspot_ma/" target="_blank" rel="noreferrer"
+            className="flex items-center justify-center gap-2 text-[#FF66C4] hover:opacity-80 transition-opacity font-semibold">
+            <FaInstagram size={20} /> @thebeautyspot_ma
+          </a>
         </div>
         <div className="relative p-5">
           {/* Top-left bracket */}
