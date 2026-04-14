@@ -2,6 +2,14 @@
 
 ---
 
+## v0.11.0 — 2026-04-11
+
+### What's New
+- Collage grid videos compressed from .MOV to .MP4 (video1: 30MB→4MB, video3: 84MB→15MB, video4: 425MB→16MB)
+- Video modal now plays compressed MP4 files for faster load and mobile compatibility
+
+---
+
 ## v0.10.0 — 2026-04-11
 
 ### What's New

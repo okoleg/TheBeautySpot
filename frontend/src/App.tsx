@@ -37,6 +37,7 @@ const NAV_LINKS = [
 function App() {
   const [scrolled, setScrolled] = useState(false)
   const [photoIndex, setPhotoIndex] = useState(0)
+  const [videoModal, setVideoModal] = useState<string | null>(null)
   const [textIndex, setTextIndex] = useState(0)
   const [textVisible, setTextVisible] = useState(true)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -115,11 +116,27 @@ function App() {
 
         {/* Left column: collage grid */}
         <div className="grid flex-1 grid-cols-3 grid-rows-3 overflow-hidden">
-          {[1,2,3,4,5,6,7,8,9].map(n => (
-            <div key={n} className="relative overflow-hidden transition-all duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl aspect-square md:aspect-auto">
-              <div className="w-full h-full bg-cover bg-center transition-transform duration-500 hover:scale-110" style={{ backgroundImage: `url(/collage${n}.jpg)` }} />
-            </div>
-          ))}
+          {[1,2,3,4,5,6,7,8,9].map(n => {
+            const videoMap: Record<number, string> = { 1: '/video1.mp4', 3: '/video3.mp4', 4: '/video4.mp4' }
+            const hasVideo = n in videoMap
+            return (
+              <div
+                key={n}
+                className={`relative overflow-hidden transition-all duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl aspect-square md:aspect-auto ${hasVideo ? 'cursor-pointer' : ''}`}
+                onClick={() => hasVideo && setVideoModal(videoMap[n])}
+              >
+                <div className="w-full h-full bg-cover bg-center transition-transform duration-500 hover:scale-110" style={{ backgroundImage: `url(/collage${n}.jpg)` }} />
+                {hasVideo && (
+                  <div className="absolute top-4 right-5 pointer-events-none">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="28" height="28" rx="6" fill="rgba(255,255,255,0.85)"/>
+                      <path d="M8 12 Q8 6.5 12.5 8.5 L18.5 11.5 Q23 14 18.5 16.5 L12.5 19.5 Q8 21.5 8 16 Z" fill="#111"/>
+                    </svg>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
         {/* Right column: photos as background + text */}
@@ -142,6 +159,10 @@ function App() {
           <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-white/30 pointer-events-none" />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(255,102,196,0.06),transparent)] pointer-events-none" />
 
+          <a href="https://www.instagram.com/thebeautyspot_ma/" target="_blank" rel="noreferrer"
+            className="absolute top-[60px] left-[60px] z-10 text-white/70 hover:text-[#FF66C4] transition-colors">
+            <FaInstagram size={64} />
+          </a>
           <div className="animate-float absolute top-16 right-12 text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
           <div className="animate-float delay-300 absolute bottom-16 right-24 text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
@@ -349,6 +370,29 @@ function App() {
           <MdCalendarMonth size={18} /> Book Now
         </a>
       </section>
+
+      {/* VIDEO MODAL */}
+      {videoModal && (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center"
+          onClick={() => setVideoModal(null)}
+        >
+          <div className="relative max-w-3xl w-full mx-4" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setVideoModal(null)}
+              className="absolute -top-10 right-0 text-white/70 hover:text-white text-3xl leading-none cursor-pointer"
+            >
+              ✕
+            </button>
+            <video
+              src={videoModal}
+              controls
+              autoPlay
+              className="w-full rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
 
       {/* FOOTER */}
       <footer className="mt-auto bg-black py-8 px-6 flex flex-col items-center gap-3">
