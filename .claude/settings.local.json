@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(firebase deploy:*)"
+      "Bash(firebase deploy:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git tag:*)",
+      "Bash(git push:*)",
+      "Bash(npm run:*)",
+      "Read(//Users/ok/Documents/WORKSPACE/GitHub/**)"
     ]
   }
 }

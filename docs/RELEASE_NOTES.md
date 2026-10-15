@@ -2,6 +2,117 @@
 
 ---
 
+## v0.15.0 — 2026-10-15
+
+### What's New
+- Added a contact form below Find Us, matching the site's pink, black, and white design.
+- Connected email submissions to the configured recipient through FormSubmit, with required name/email/message and optional phone/treatment.
+- Added validation, duplicate prevention, sending feedback, and a return confirmation after the provider's spam check.
+- Email delivery requires the recipient's one-time FormSubmit inbox activation; see `docs/contact-form.md`.
+
+### Repository & validation
+- Checked in all accumulated website updates, original photographs, collage sources, icons, and videos since v0.11.0.
+- Added Git LFS tracking for original MOV videos; the website continues to use its compressed MP4 files.
+- Production build passes. Desktop/mobile browser checks cover navigation, Prices, Find Us, and the contact form's native submission payload and return flow.
+- Contact-form tests intercept provider requests; real email delivery remains unverified pending inbox activation. Local environment configuration is excluded from Git.
+
+---
+
+## v0.14.0 — 2026-10-15
+
+### What's New
+- Redesigned Find Us with a connected contact layout and thin dividers instead of separate cards, preserving the pink, black, and white palette.
+- Kept the address, Floor 3, opening hours, phone, Instagram, and Square booking button.
+- Added an embedded Google Map and directions links; verified desktop and mobile layouts.
+
+---
+
+## v0.13.0 — 2026-10-06
+
+### What's New
+- Removed the version selector everywhere and deleted versions 2–5. The site now uses the current V1 design only.
+- Removed design-version parameters from navigation and cleaned up legacy version URLs while preserving section links.
+- Kept the scroll-to-top button as an independent component.
+
+---
+
+## v0.12.8 — 2026-10-06
+
+### What's New
+- Removed active category and subsection highlights from Explore treatments and restored its previous styling.
+- Treatment links still navigate to their sections.
+
+---
+
+## v0.12.7 — 2026-10-06
+
+### What's New
+- Added active category and subsection highlights to the Explore treatments menu on Prices.
+- Highlights respond to clicked links and follow the current section while scrolling; the category buttons stay synchronized.
+
+---
+
+## v0.12.6 — 2026-10-06
+
+### What's New
+- Removed the Back to home link from Prices and reduced the space above the page title.
+
+---
+
+## v0.12.5 — 2026-10-06
+
+### What's New
+- Renamed About to About Us in the shared desktop and mobile navigation.
+- Kept the navigation order: Services, Prices, About Us, Contact, with Book Now on the right.
+
+---
+
+## v0.12.4 — 2026-10-06
+
+### What's New
+- Fixed navigation from Prices to the landing-page Services, About, and Contact sections by scrolling to fragments after React renders the page.
+- Shared fragment navigation also handles initial Prices section links and adjusts once page assets finish loading.
+- Verified desktop and mobile navigation in Chrome, including the Photo Hero version and Prices category scrolling.
+
+---
+
+## v0.12.3 — 2026-10-06
+
+### What's New
+- Renamed the combined treatment menu page to Prices at `/prices` and added Prices to desktop and mobile navigation.
+- Services now links to the services section on the landing page.
+- Updated homepage treatment links and kept previous service-page URLs working through redirects to Prices.
+
+---
+
+## v0.12.2 — 2026-10-06
+
+### What's New
+- Extracted shared SiteHeader and SiteFooter components used by the homepage, Services page, and every design version.
+- Added common Services, About, and Contact navigation with a mobile menu and the Square booking button.
+- Preserved design-version selections when navigating between pages and offset homepage anchors below the sticky header.
+
+---
+
+## v0.12.1 — 2026-10-06
+
+### What's New
+- Combined Body Treatments, Brows & Lashes, and Skin Care into a single Services page.
+- Category buttons and the treatment menu now scroll to sections on that page.
+- Homepage links point to the matching sections; existing service-page URLs continue to work.
+
+---
+
+## v0.12.0 — 2026-10-05
+
+### What's New
+- Added Body Treatments, Brows & Lashes, and Skin Care pages using the supplied treatment menus, including prices, durations, packages, lash fills, and facial add-ons.
+- Linked the new service pages from the main homepage.
+- Updated booking buttons across all design versions and service pages to open the salon's Square appointments page.
+- Built and published to Firebase Hosting at https://thebeautyspot-3e54c.web.app.
+
+---
+
 ## v0.11.0 — 2026-04-11
 
 ### What's New

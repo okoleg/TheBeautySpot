@@ -2,20 +2,26 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import V2 from './versions/V2.tsx'
-import V3 from './versions/V3.tsx'
-import V4 from './versions/V4.tsx'
-import V5 from './versions/V5.tsx'
-import VersionSwitcher from './components/VersionSwitcher.tsx'
+import ScrollToTop from './components/ScrollToTop.tsx'
+import PricesPage from './components/PricesPage.tsx'
+import { serviceMenus } from './serviceMenus'
 
-const version = parseInt(new URLSearchParams(window.location.search).get('v') ?? '1')
-
-const VERSIONS: Record<number, React.ComponentType> = { 1: App, 2: V2, 3: V3, 4: V4, 5: V5 }
-const Page = VERSIONS[version] ?? App
+const pathname = window.location.pathname.replace(/\/$/, '')
+const legacyMenu = serviceMenus.find(menu => pathname === `/services/${menu.slug}`)
+const isPricesPage = pathname === '/prices' || pathname === '/services' || Boolean(legacyMenu)
+const canonicalUrl = new URL(window.location.href)
+canonicalUrl.searchParams.delete('v')
+if (pathname === '/services' || legacyMenu) {
+  canonicalUrl.pathname = '/prices'
+  canonicalUrl.hash ||= legacyMenu ? `#${legacyMenu.slug}` : ''
+}
+if (canonicalUrl.href !== window.location.href) {
+  window.history.replaceState(null, '', `${canonicalUrl.pathname}${canonicalUrl.search}${canonicalUrl.hash}`)
+}
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Page />
-    <VersionSwitcher current={version} />
+    {isPricesPage ? <PricesPage /> : <App />}
+    <ScrollToTop />
   </StrictMode>,
 )

@@ -1,6 +1,6 @@
 export const PHONE = '+1 617 319 2254'
 export const PHONE_HREF = 'tel:+16173192254'
-export const BOOKING_URL = 'https://thebeautyspotma.com'
+export const BOOKING_URL = 'https://book.squareup.com/appointments/antw5jpnbvknj8/location/LQYNBDRWNX0AY/services'
 export const INSTAGRAM_URL = 'https://www.instagram.com/thebeautyspot_ma/'
 export const INSTAGRAM_HANDLE = '@thebeautyspot_ma'
 

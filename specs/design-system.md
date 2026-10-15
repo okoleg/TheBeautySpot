@@ -210,14 +210,9 @@ Four cards: Phone · Location · Hours · Instagram
 
 ---
 
-## 13. Design Versions
+## 13. Site Design
 
-| Version | Name        | Description                              |
-|---------|-------------|------------------------------------------|
-| V1      | Pink Classic | Main design — white/pink/black, photo hero |
-| V2      | Pink        | Identical to V1                          |
-| V3      | Photo Hero  | Identical to V1                          |
-| V4      | Bold Editorial | Stark black & white, sharp typography |
-| V5      | Glam Gradient | Deep purple/pink dark theme            |
-
-Versions switchable via `?v=1..5` URL param. Switcher: floating bottom-right pink button.
+The site uses V1 (Pink Classic): white, pink, and black with a photo hero.
+Alternate designs and the version selector have been removed. Legacy `v` query
+parameters are removed from the URL while preserving other parameters and section links.
+The scroll-to-top button is a separate shared component.

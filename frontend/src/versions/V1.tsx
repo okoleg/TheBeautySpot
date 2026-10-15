@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react'
+import SiteHeader from '../components/SiteHeader'
+import SiteFooter from '../components/SiteFooter'
+import { BOOKING_URL } from '../data'
 import {
   MdAutoAwesome,
   MdFaceRetouchingNatural,
@@ -11,7 +13,7 @@ import {
   MdCall,
   MdPhotoCamera,
 } from 'react-icons/md'
-import './App.css'
+import '../App.css'
 
 const SERVICES = [
   { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.' },
@@ -20,49 +22,13 @@ const SERVICES = [
   { Icon: MdSpa,                   title: 'Body Care & LPG',    desc: 'Body treatments and LPG contouring therapy for total care.' },
 ]
 
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'About',    href: '#about' },
-  { label: 'Contact',  href: '#contact' },
-]
-
 function App() {
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-neutral-800 bg-white">
 
       {/* NAV */}
-      <header className={`sticky top-0 z-20 flex items-center justify-between px-4 py-3 md:px-8 md:py-5 backdrop-blur-md border-b transition-[background-color,border-color,box-shadow] duration-300 ${scrolled ? 'bg-white/80 border-[#FF66C4]/10 shadow-sm' : 'bg-transparent border-transparent'}`}>
-        <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-52 md:w-72 object-contain" />
-        <nav className="hidden md:flex gap-8 text-base text-neutral-500">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} className="hover:text-[#FF66C4] transition-colors">
-              {label}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2 md:gap-12">
-          <a
-            href="tel:+16173192254"
-            className="flex items-center gap-2 text-neutral-600 hover:text-[#FF66C4] transition-colors group"
-          >
-            <span className="flex items-center justify-center w-9 h-9 rounded-full border border-neutral-200 group-hover:border-[#FF66C4]/40 group-hover:bg-[#FF66C4]/5 transition-all">
-              <MdCall size={16} />
-            </span>
-            <span className="hidden md:block text-sm font-medium tracking-wide">+1 617 319 2254</span>
-          </a>
-          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="btn-primary btn-small !px-3 !py-1.5 md:!px-[22px] md:!py-[10px]">
-            Book Now
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section className="relative flex flex-col items-center text-center px-6 pt-28 pb-32 overflow-hidden">
@@ -80,7 +46,7 @@ function App() {
         <p className="animate-fade-up delay-200 text-lg text-neutral-400 max-w-lg leading-relaxed mb-10">
           Where beauty and professionalism come together to highlight your uniqueness.
         </p>
-        <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2">
+        <a href={BOOKING_URL} target="_blank" rel="noreferrer" className="animate-fade-up delay-300 btn-primary flex items-center gap-2">
           <MdCalendarMonth size={18} /> Book an Appointment
         </a>
       </section>
@@ -101,7 +67,7 @@ function App() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services">
+      <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services" style={{ scrollMarginTop: '7rem' }}>
         <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] text-center mb-3">What We Offer</p>
         <h2 className="text-4xl font-bold text-center text-black tracking-tight mb-14">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -116,7 +82,7 @@ function App() {
       </section>
 
       {/* ABOUT */}
-      <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about">
+      <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about" style={{ scrollMarginTop: '7rem' }}>
         <div className="max-w-xl mx-auto text-center flex flex-col gap-5">
           <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Our Story</p>
           <h2 className="text-4xl font-bold tracking-tight text-white">About Us</h2>
@@ -132,7 +98,7 @@ function App() {
       </section>
 
       {/* CONTACT */}
-      <section className="py-24 px-6 max-w-5xl mx-auto w-full flex flex-col items-center gap-14" id="contact">
+      <section className="py-24 px-6 max-w-5xl mx-auto w-full flex flex-col items-center gap-14" id="contact" style={{ scrollMarginTop: '7rem' }}>
         <div className="text-center">
           <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">Get In Touch</p>
           <h2 className="text-4xl font-bold text-black tracking-tight">Find Us</h2>
@@ -157,17 +123,13 @@ function App() {
             </div>
           ))}
         </div>
-        <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
+        <a href={BOOKING_URL} target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
           <MdCalendarMonth size={18} /> Book Now
         </a>
       </section>
 
       {/* FOOTER */}
-      <footer className="mt-auto bg-black py-8 px-6 flex flex-col items-center gap-3">
-        <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-72 opacity-80 invert" />
-        <div className="w-12 h-px bg-[#FF66C4]/40" />
-        <p className="text-sm text-neutral-500">© {new Date().getFullYear()} The Beauty Spot MA · All rights reserved</p>
-      </footer>
+      <SiteFooter />
 
     </div>
   )

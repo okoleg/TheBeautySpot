@@ -38,6 +38,17 @@ git push && git push --tags
 
 ## First-Time Setup
 
+Original MOV videos use Git LFS. Install it before cloning, or run the following
+inside an existing checkout to download the original assets:
+
+```bash
+git lfs install --local
+git lfs pull
+```
+
+The frontend uses the compressed MP4 copies. Configure contact-form delivery
+using [contact-form.md](contact-form.md) before building from a fresh checkout.
+
 1. Install Firebase CLI:
    ```bash
    npm install -g firebase-tools

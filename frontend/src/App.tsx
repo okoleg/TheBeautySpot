@@ -1,3 +1,8 @@
+import SiteHeader from './components/SiteHeader'
+import SiteFooter from './components/SiteFooter'
+import FindUs from './components/FindUs'
+import ContactForm from './components/ContactForm'
+import { BOOKING_URL } from './data'
 import { useEffect, useRef, useState } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 import {
@@ -6,12 +11,9 @@ import {
   MdBrush,
   MdSpa,
   MdFavorite,
-  MdLocationOn,
   MdCalendarMonth,
   MdWorkspacePremium,
   MdCall,
-  MdPhotoCamera,
-  MdSchedule,
 } from 'react-icons/md'
 import './App.css'
 
@@ -22,31 +24,18 @@ const HERO_PHOTOS = [
 ]
 
 const SERVICES = [
-  { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.' },
-  { Icon: MdFaceRetouchingNatural, title: 'Facials & Skin Care', desc: 'Personalized skin treatments for a radiant, healthy glow.' },
-  { Icon: MdBrush,                 title: 'Makeup',             desc: 'From natural everyday looks to full glam for any occasion.' },
-  { Icon: MdSpa,                   title: 'Body Care & LPG',    desc: 'Body treatments and LPG contouring therapy for total care.' },
-]
-
-const NAV_LINKS = [
-  { label: 'Services', href: '#services' },
-  { label: 'About',    href: '#about' },
-  { label: 'Contact',  href: '#contact' },
+  { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.', href: '/prices#brows-lashes' },
+  { Icon: MdFaceRetouchingNatural, title: 'Facials & Skin Care', desc: 'Personalized skin treatments for a radiant, healthy glow.', href: '/prices#skin-care' },
+  { Icon: MdBrush,                 title: 'Makeup',             desc: 'From natural everyday looks to full glam for any occasion.', href: undefined },
+  { Icon: MdSpa,                   title: 'Body Care & LPG',    desc: 'Body treatments and LPG contouring therapy for total care.', href: '/prices#body' },
 ]
 
 function App() {
-  const [scrolled, setScrolled] = useState(false)
   const [photoIndex, setPhotoIndex] = useState(0)
   const [videoModal, setVideoModal] = useState<string | null>(null)
   const [textIndex, setTextIndex] = useState(0)
   const [textVisible, setTextVisible] = useState(true)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   const advanceTo = (i: number) => {
     setPhotoIndex(i)
@@ -86,30 +75,7 @@ function App() {
     <div className="min-h-screen flex flex-col font-sans text-neutral-800 bg-white">
 
       {/* NAV */}
-      <header className={`sticky top-0 z-20 flex items-center justify-between px-4 py-3 md:px-8 md:py-5 backdrop-blur-md border-b border-[#FF66C4]/10 shadow-sm transition-[background-color] duration-300 ${scrolled ? 'bg-white/80' : 'bg-white/60'}`}>
-        <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-52 md:w-72 object-contain" />
-        <nav className="hidden md:flex gap-8 text-base text-neutral-500">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} className="hover:text-[#FF66C4] transition-colors">
-              {label}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2 md:gap-12">
-          <a
-            href="tel:+16173192254"
-            className="flex items-center gap-2 text-neutral-600 hover:text-[#FF66C4] transition-colors group"
-          >
-            <span className="flex items-center justify-center w-9 h-9 rounded-full border border-neutral-200 group-hover:border-[#FF66C4]/40 group-hover:bg-[#FF66C4]/5 transition-all">
-              <MdCall size={16} />
-            </span>
-            <span className="hidden md:block text-sm font-medium tracking-wide">+1 617 319 2254</span>
-          </a>
-          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="btn-primary btn-small !px-3 !py-1.5 md:!px-[22px] md:!py-[10px]">
-            Book Now
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section className="flex flex-col-reverse md:flex-row min-h-screen overflow-hidden">
@@ -186,7 +152,7 @@ function App() {
             </div>
           </div>
           <div className="relative z-10 mt-6 mb-6 md:mt-10 md:mb-10">
-            <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
+            <a href={BOOKING_URL} target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
               <MdCalendarMonth size={18} /> Book an Appointment
             </a>
           </div>
@@ -253,7 +219,7 @@ function App() {
           <a href="tel:+16173192254" className="flex items-center gap-2 text-sm font-bold text-black">
             <MdCall size={16} /> 617-319-2254
           </a>
-          <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer"
+          <a href={BOOKING_URL} target="_blank" rel="noreferrer"
             className="mt-1 inline-flex items-center justify-center px-8 py-3 rounded-full bg-black text-white text-xs font-bold tracking-widest uppercase hover:opacity-80 transition-opacity">
             Book Now
           </a>
@@ -262,22 +228,23 @@ function App() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services">
+      <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services" style={{ scrollMarginTop: '7rem' }}>
         <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] text-center mb-3">What We Offer</p>
         <h2 className="text-4xl font-bold text-center text-black tracking-tight mb-14">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map(({ Icon, title, desc }) => (
+          {SERVICES.map(({ Icon, title, desc, href }) => (
             <div key={title} className="card-glow p-8 flex flex-col gap-3">
               <Icon size={32} className="text-[#FF66C4]" />
               <h3 className="font-semibold text-black text-lg">{title}</h3>
               <p className="text-sm text-neutral-500 leading-relaxed">{desc}</p>
+              {href && <a href={href} className="mt-auto pt-3 text-sm font-semibold text-[#b82e83] hover:underline">View treatments & prices <span aria-hidden="true">→</span><span className="sr-only"> for {title}</span></a>}
             </div>
           ))}
         </div>
       </section>
 
       {/* ABOUT */}
-      <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about">
+      <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about" style={{ scrollMarginTop: '7rem' }}>
         <div className="max-w-5xl mx-auto flex flex-col gap-10">
           {/* Title — full width */}
           <div className="text-center flex flex-col gap-3">
@@ -340,36 +307,8 @@ function App() {
       </section>
 
       {/* CONTACT */}
-      <section className="py-24 px-6 max-w-5xl mx-auto w-full flex flex-col items-center gap-14" id="contact">
-        <div className="text-center">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">Get In Touch</p>
-          <h2 className="text-4xl font-bold text-black tracking-tight">Find Us</h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
-          {[
-            { Icon: MdCall,        label: 'Phone',     value: '+1 617 319 2254',                              href: 'tel:+16173192254' },
-            { Icon: MdLocationOn,  label: 'Location',  value: '123 Highland Ave\nNeedham, MA 02494\nFloor 3', href: undefined },
-            { Icon: MdSchedule,    label: 'Hours',     value: 'Mon–Fri: 10am–7pm\nSat: 10am–6pm\nSun: closed', href: undefined },
-            { Icon: MdPhotoCamera, label: 'Instagram', value: '@thebeautyspot_ma',                            href: 'https://www.instagram.com/thebeautyspot_ma/' },
-          ].map(({ Icon, label, value, href }) => (
-            <div key={label} className="card-glow px-6 py-7 flex flex-col items-center gap-3 text-center">
-              <Icon size={24} className="text-[#FF66C4]" />
-              <span className="text-xs font-bold tracking-[2px] uppercase text-[#FF66C4]">{label}</span>
-              {href ? (
-                <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer"
-                  className="text-base text-neutral-700 hover:text-[#FF66C4] transition-colors whitespace-pre-line">
-                  {value}
-                </a>
-              ) : (
-                <span className="text-base text-neutral-700 whitespace-pre-line">{value}</span>
-              )}
-            </div>
-          ))}
-        </div>
-        <a href="https://thebeautyspotma.com" target="_blank" rel="noreferrer" className="btn-primary flex items-center gap-2">
-          <MdCalendarMonth size={18} /> Book Now
-        </a>
-      </section>
+      <FindUs />
+      <ContactForm />
 
       {/* VIDEO MODAL */}
       {videoModal && (
@@ -377,17 +316,17 @@ function App() {
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center"
           onClick={() => setVideoModal(null)}
         >
-          <div className="relative max-w-3xl w-full mx-4" onClick={e => e.stopPropagation()}>
-            <button
-              onClick={() => setVideoModal(null)}
-              className="absolute -top-10 right-0 text-white/70 hover:text-white text-3xl leading-none cursor-pointer"
-            >
-              ✕
-            </button>
+          <button
+            onClick={() => setVideoModal(null)}
+            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white text-6xl leading-none cursor-pointer"
+          >
+            ✕
+          </button>
+          <div className="relative max-w-3xl w-full mx-4">
             <video
               src={videoModal}
-              controls
               autoPlay
+              playsInline
               className="w-full rounded-xl shadow-2xl"
             />
           </div>
@@ -395,11 +334,7 @@ function App() {
       )}
 
       {/* FOOTER */}
-      <footer className="mt-auto bg-black py-8 px-6 flex flex-col items-center gap-3">
-        <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-72 opacity-80 invert" />
-        <div className="w-12 h-px bg-[#FF66C4]/40" />
-        <p className="text-sm text-neutral-500">© {new Date().getFullYear()} The Beauty Spot MA · All rights reserved</p>
-      </footer>
+      <SiteFooter />
 
     </div>
   )
