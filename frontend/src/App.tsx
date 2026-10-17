@@ -3,14 +3,12 @@ import SiteFooter from './components/SiteFooter'
 import FindUs from './components/FindUs'
 import ContactForm from './components/ContactForm'
 import TeamMembers from './components/TeamMembers'
+import ServiceDesignPreviews from './components/ServiceDesignPreviews'
 import { BOOKING_URL } from './data'
+import { serviceCards as SERVICES } from './serviceCatalog'
 import { useEffect, useRef, useState } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 import {
-  MdAutoAwesome,
-  MdFaceRetouchingNatural,
-  MdBrush,
-  MdSpa,
   MdFavorite,
   MdCalendarMonth,
   MdWorkspacePremium,
@@ -24,12 +22,6 @@ const HERO_PHOTOS = [
   { src: '/Vika.jpg',      heading: 'Feel confident,', headingSpan: 'feel like yourself.' },
 ]
 
-const SERVICES = [
-  { Icon: MdAutoAwesome,           title: 'Brows & Lashes',    desc: 'Shaping, tinting, and lash extensions tailored to your look.', href: '/prices#brows-lashes' },
-  { Icon: MdFaceRetouchingNatural, title: 'Facials & Skin Care', desc: 'Personalized skin treatments for a radiant, healthy glow.', href: '/prices#skin-care' },
-  { Icon: MdBrush,                 title: 'Makeup',             desc: 'From natural everyday looks to full glam for any occasion.', href: undefined },
-  { Icon: MdSpa,                   title: 'Body Care & LPG',    desc: 'Body treatments and LPG contouring therapy for total care.', href: '/prices#body' },
-]
 
 function App() {
   const [photoIndex, setPhotoIndex] = useState(0)
@@ -233,16 +225,24 @@ function App() {
         <p className="text-xs font-bold tracking-[3px] uppercase text-pink text-center mb-3">What We Offer</p>
         <h2 className="text-4xl font-bold text-center text-black tracking-tight mb-14">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map(({ Icon, title, desc, href }) => (
-            <div key={title} className="card-glow p-8 flex flex-col gap-3">
-              <Icon size={32} className="text-pink" />
-              <h3 className="font-semibold text-black text-lg">{title}</h3>
-              <p className="text-sm text-neutral-500 leading-relaxed">{desc}</p>
-              {href && <a href={href} className="mt-auto pt-3 text-sm font-semibold text-pink hover:underline">View treatments & prices <span aria-hidden="true">→</span><span className="sr-only"> for {title}</span></a>}
-            </div>
+          {SERVICES.map(({ Icon, title, desc, href, image }) => (
+            <a key={title} href={href} aria-label={`Explore ${title}`} className="service-link-card group relative isolate flex min-h-[420px] flex-col overflow-hidden rounded-2xl bg-black p-6 shadow-lg">
+              <img src={image} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
+              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/95 via-black/55 to-black/10" />
+              <span className="mb-16 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/40 text-pink backdrop-blur-sm"><Icon size={28} aria-hidden="true" /></span>
+              <div className="mt-auto flex flex-col gap-3">
+                <h3 className="min-h-14 text-xl font-semibold leading-7 text-white">{title}</h3>
+                <p className="min-h-[72px] text-sm leading-6 text-white/90">{desc}</p>
+                <div className="min-h-12 pt-2">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-pink group-hover:underline group-focus-visible:underline">Explore treatments <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span></span>
+                </div>
+              </div>
+            </a>
           ))}
         </div>
       </section>
+
+      <ServiceDesignPreviews services={SERVICES} />
 
       {/* ABOUT */}
       <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about" style={{ scrollMarginTop: '7rem' }}>

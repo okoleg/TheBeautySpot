@@ -10,12 +10,10 @@ export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
   const links = [
     { label: 'Services', href: '/#services' },
-    { label: 'Prices', href: '/prices' },
     { label: 'About', href: '/#about' },
     { label: 'Location & Hours', href: '/#contact' },
     { label: 'Contact', href: '/#contact-form' },
   ]
-  const isPricesPage = window.location.pathname.replace(/\/$/, '') === '/prices'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -38,7 +36,7 @@ export default function SiteHeader() {
         </a>
         <nav aria-label="Main navigation" className="hidden lg:flex gap-4 text-sm text-neutral-500 xl:gap-8 xl:text-base">
           {links.map(({ label, href }) => (
-            <a key={label} href={href} aria-current={label === 'Prices' && isPricesPage ? 'page' : undefined} className="whitespace-nowrap hover:text-pink transition-colors">{label}</a>
+            <a key={label} href={href} className="whitespace-nowrap hover:text-pink transition-colors">{label}</a>
           ))}
         </nav>
         <div className="flex shrink-0 items-center gap-2 xl:gap-12">
@@ -54,7 +52,7 @@ export default function SiteHeader() {
       </div>
       <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!menuOpen} className="border-t border-neutral-200 bg-white px-4 py-3 lg:hidden">
         {links.map(({ label, href }) => (
-          <a key={label} href={href} onClick={() => setMenuOpen(false)} aria-current={label === 'Prices' && isPricesPage ? 'page' : undefined} className="block rounded-lg px-3 py-3 text-sm text-neutral-700 hover:bg-pink/10">{label}</a>
+          <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-3 py-3 text-sm text-neutral-700 hover:bg-pink/10">{label}</a>
         ))}
         <a href={PHONE_HREF} className="block px-3 py-3 text-sm text-neutral-700">{PHONE}</a>
       </nav>

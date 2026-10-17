@@ -23,7 +23,9 @@ Deploy feature changes to development only. Deploy to production only when the
 owner explicitly asks to publish to production; a generic request to deploy or
 publish does not authorize a production deployment.
 This is a static React site: Firebase Hosting serves the built app, including media
-and Prices. It currently uses no Firebase database, Authentication, Storage SDK,
+and service detail pages. Pricing and package links go to Square; the former
+Prices page has been removed (see [booking-links.md](booking-links.md)).
+It currently uses no Firebase database, Authentication, Storage SDK,
 or Analytics SDK. The Firebase web configuration is not required for Hosting.
 Contact email continues through FormSubmit, configured separately; a new domain
 may require inbox activation (see [contact-form.md](contact-form.md)).

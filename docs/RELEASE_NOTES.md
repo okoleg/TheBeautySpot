@@ -2,6 +2,66 @@
 
 ---
 
+## v0.17.0 — 2026-10-16
+
+### Released
+- Published all current website changes to both development and production using their respective email settings.
+- Included service-photo cards, nine design comparisons, full-card hover/focus navigation, and four service detail pages.
+- Removed the Prices page and menu item; pricing/package links and retired URLs now lead to Square, selecting the relevant category where available.
+- Included the locally hosted service photos and documented the verified Square category links.
+- Development and production builds and targeted lint checks pass. Previous browser checks cover pointer/keyboard navigation, responsive service pages, pricing links, retired URL redirects, and live Square category selection.
+- Contact email delivery remains unverified after the previously recorded FormSubmit security challenge; this release does not change the email provider.
+
+---
+
+## v0.16.9 — 2026-10-16
+
+### Changed
+- Removed Prices from desktop/mobile navigation and deleted the internal Prices page.
+- Routed pricing, package, and service-page booking links to Square with verified category selection for Brows, Lashes, Skin Care, Makeup, and Body Care.
+- Redirected old Prices/service-menu URLs to Square, selecting a category when available. Kept the new service detail pages and full-card links.
+- Live Square checks confirmed each category is selected and shown first. Deploy to development only.
+
+---
+
+## v0.16.8 — 2026-10-16
+
+### Added
+- Added dedicated service pages at `/treatments/brows-lashes`, `/treatments/skin-care`, `/treatments/makeup`, and `/treatments/body`, with shared header/footer, photos, booking, and related services.
+- Reused supplied treatment information and linked to the existing Prices page; added Naz's profile and contact/booking links on Makeup.
+- Made all 40 cards across the current section and nine design comparisons full-card links, with pink hover/focus outlines, a subtle lift, and Explore treatments arrows.
+- Verified pointer clicks across image areas, direct page reloads, keyboard Enter navigation, treatment details, and desktop/mobile layouts. Deploy to development only.
+- Removed the specifically approved inactive development Hosting snapshot `df42a8c5104d3fd7` from April 14 to unblock deployment after reaching the storage quota; current live and production versions were preserved.
+
+---
+
+## v0.16.7 — 2026-10-16
+
+### Released
+- Published the latest service photo cards and all nine numbered design comparisons to production at the owner's explicit request.
+- Included the current white translucent icon circles and the five tall/four square comparison layouts in the production build.
+- Verified the production build retains `thebeautyspotma@gmail.com` as the contact recipient.
+
+---
+
+## v0.16.6 — 2026-10-16
+
+### Added
+- Added nine development-only service design comparisons after the current section: five tall-card variations and four square-card variations.
+- Compared dark/white icon circles, no-icon layouts, photo overlays, and black/white footers, with numbered jump links.
+- Retained the same service photos, descriptions, and existing Prices links. Production builds omit the comparison sections.
+
+---
+
+## v0.16.5 — 2026-10-16
+
+### Changed
+- Added locally stored service photos from the old website as backgrounds for Brows & Lashes, Facials & Skin Care, Makeup, and Body Care & LPG cards.
+- Added dark gradient overlays, white text, and brand pink icons/links while preserving service descriptions and existing Prices links.
+- Publish this update to development only pending explicit production approval.
+
+---
+
 ## v0.16.4 — 2026-10-16
 
 ### Released
