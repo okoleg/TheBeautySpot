@@ -30,7 +30,7 @@ html:has(.prices-page) {
 
 /* Gradient text */
 .text-gradient {
-  background: linear-gradient(90deg, #FF66C4, #ff99d6);
+  background: linear-gradient(90deg, var(--color-pink), var(--color-pink-highlight));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -50,7 +50,7 @@ html:has(.prices-page) {
   text-transform: uppercase;
   color: #fff;
   border-radius: 999px;
-  background: #FF66C4;
+  background: var(--color-pink);
   box-shadow: 0 4px 20px rgba(255, 102, 196, 0.35);
   transition: transform 0.2s, box-shadow 0.2s;
 }

@@ -4,7 +4,7 @@ export default function SiteFooter() {
       <a href="/" aria-label="The Beauty Spot home">
         <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-72 max-w-full opacity-80 invert" />
       </a>
-      <div className="w-12 h-px bg-[#FF66C4]/40" />
+      <div className="w-12 h-px bg-pink/40" />
       <p className="text-center text-sm text-neutral-500">© {new Date().getFullYear()} The Beauty Spot MA · All rights reserved</p>
     </footer>
   )

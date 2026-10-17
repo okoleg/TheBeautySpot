@@ -33,10 +33,10 @@ function App() {
       {/* HERO */}
       <section className="relative flex flex-col items-center text-center px-6 pt-28 pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(255,102,196,0.1),transparent)] pointer-events-none" />
-        <div className="animate-float absolute top-24 left-[14%] text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
-        <div className="animate-float delay-300 absolute bottom-16 right-[16%] text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
+        <div className="animate-float absolute top-24 left-[14%] text-pink/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
+        <div className="animate-float delay-300 absolute bottom-16 right-[16%] text-pink/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
-        <p className="animate-fade-up text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-5 flex items-center gap-1">
+        <p className="animate-fade-up text-xs font-bold tracking-[3px] uppercase text-pink mb-5 flex items-center gap-1">
           <MdLocationOn size={14} /> Boston, MA
         </p>
         <h1 className="animate-fade-up delay-100 text-5xl md:text-7xl font-bold leading-tight tracking-tight text-black mb-5">
@@ -54,26 +54,26 @@ function App() {
       {/* STATS */}
       <section className="bg-black flex items-center justify-center gap-16 py-14 px-6">
         <div className="flex flex-col items-center text-white gap-1">
-          <MdWorkspacePremium size={32} className="text-[#FF66C4] mb-1" />
-          <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">10+</span>
+          <MdWorkspacePremium size={32} className="text-pink mb-1" />
+          <span className="text-5xl font-bold text-pink tracking-tight">10+</span>
           <span className="text-sm opacity-50 tracking-widest uppercase">Years of Experience</span>
         </div>
         <div className="w-px h-16 bg-white/10" />
         <div className="flex flex-col items-center text-white gap-1">
-          <MdFavorite size={32} className="text-[#FF66C4] mb-1" />
-          <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">7,000+</span>
+          <MdFavorite size={32} className="text-pink mb-1" />
+          <span className="text-5xl font-bold text-pink tracking-tight">7,000+</span>
           <span className="text-sm opacity-50 tracking-widest uppercase">Happy Clients</span>
         </div>
       </section>
 
       {/* SERVICES */}
       <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services" style={{ scrollMarginTop: '7rem' }}>
-        <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] text-center mb-3">What We Offer</p>
+        <p className="text-xs font-bold tracking-[3px] uppercase text-pink text-center mb-3">What We Offer</p>
         <h2 className="text-4xl font-bold text-center text-black tracking-tight mb-14">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map(({ Icon, title, desc }) => (
             <div key={title} className="card-glow p-8 flex flex-col gap-3">
-              <Icon size={32} className="text-[#FF66C4]" />
+              <Icon size={32} className="text-pink" />
               <h3 className="font-semibold text-black text-lg">{title}</h3>
               <p className="text-sm text-neutral-500 leading-relaxed">{desc}</p>
             </div>
@@ -84,7 +84,7 @@ function App() {
       {/* ABOUT */}
       <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about" style={{ scrollMarginTop: '7rem' }}>
         <div className="max-w-xl mx-auto text-center flex flex-col gap-5">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Our Story</p>
+          <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Our Story</p>
           <h2 className="text-4xl font-bold tracking-tight text-white">About Us</h2>
           <p className="text-neutral-400 text-lg leading-relaxed">
             The Beauty Spot started as a small, cozy studio and grew into a beloved space
@@ -100,7 +100,7 @@ function App() {
       {/* CONTACT */}
       <section className="py-24 px-6 max-w-5xl mx-auto w-full flex flex-col items-center gap-14" id="contact" style={{ scrollMarginTop: '7rem' }}>
         <div className="text-center">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">Get In Touch</p>
+          <p className="text-xs font-bold tracking-[3px] uppercase text-pink mb-3">Get In Touch</p>
           <h2 className="text-4xl font-bold text-black tracking-tight">Find Us</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-6">
@@ -110,11 +110,11 @@ function App() {
             { Icon: MdPhotoCamera, label: 'Instagram', value: '@thebeautyspot_ma',         href: 'https://www.instagram.com/thebeautyspot_ma/' },
           ].map(({ Icon, label, value, href }) => (
             <div key={label} className="card-glow px-8 py-7 flex flex-col items-center gap-3 text-center min-w-[180px]">
-              <Icon size={24} className="text-[#FF66C4]" />
-              <span className="text-xs font-bold tracking-[2px] uppercase text-[#FF66C4]">{label}</span>
+              <Icon size={24} className="text-pink" />
+              <span className="text-xs font-bold tracking-[2px] uppercase text-pink">{label}</span>
               {href ? (
                 <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noreferrer"
-                  className="text-base text-neutral-700 hover:text-[#FF66C4] transition-colors whitespace-pre-line">
+                  className="text-base text-neutral-700 hover:text-pink transition-colors whitespace-pre-line">
                   {value}
                 </a>
               ) : (

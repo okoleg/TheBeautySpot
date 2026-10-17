@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "thebeautyspot-3e54c"
+    "default": "thebeautyspot-3e54c",
+    "development": "thebeautyspot-3e54c",
+    "production": "thebeautyspotma-af603"
   }
 }

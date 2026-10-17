@@ -10,6 +10,8 @@
 
 @theme {
   --color-pink: #FF66C4;
+  --color-pink-soft: #fff0f8;
+  --color-pink-highlight: #ff99d6;
   --color-pink-light: rgba(255, 102, 196, 0.12);
 }
 

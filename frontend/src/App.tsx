@@ -2,6 +2,7 @@ import SiteHeader from './components/SiteHeader'
 import SiteFooter from './components/SiteFooter'
 import FindUs from './components/FindUs'
 import ContactForm from './components/ContactForm'
+import TeamMembers from './components/TeamMembers'
 import { BOOKING_URL } from './data'
 import { useEffect, useRef, useState } from 'react'
 import { FaInstagram } from 'react-icons/fa'
@@ -126,11 +127,11 @@ function App() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_50%,rgba(255,102,196,0.06),transparent)] pointer-events-none" />
 
           <a href="https://www.instagram.com/thebeautyspot_ma/" target="_blank" rel="noreferrer"
-            className="absolute top-[60px] left-[60px] z-10 text-white/70 hover:text-[#FF66C4] transition-colors">
+            className="absolute top-[60px] left-[60px] z-10 text-white/70 hover:text-pink transition-colors">
             <FaInstagram size={64} />
           </a>
-          <div className="animate-float absolute top-16 right-12 text-[#FF66C4]/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
-          <div className="animate-float delay-300 absolute bottom-16 right-24 text-[#FF66C4]/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
+          <div className="animate-float absolute top-16 right-12 text-pink/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
+          <div className="animate-float delay-300 absolute bottom-16 right-24 text-pink/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
           <div className="relative z-10 w-full py-2 md:py-3 bg-white/50 backdrop-blur-md flex flex-col items-center justify-center text-center gap-1 md:gap-2 mt-80 md:mt-32" style={{ minHeight: '110px' }}>
             <h1
@@ -146,7 +147,7 @@ function App() {
                 <button
                   key={i}
                   onClick={() => goToPhoto(i)}
-                  className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer border-2 ${i === photoIndex ? 'bg-[#FF66C4] border-[#FF66C4]' : 'bg-white/40 border-neutral-400 hover:border-neutral-700'}`}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 cursor-pointer border-2 ${i === photoIndex ? 'bg-pink border-pink' : 'bg-white/40 border-neutral-400 hover:border-neutral-700'}`}
                 />
               ))}
             </div>
@@ -163,7 +164,7 @@ function App() {
       <section className="bg-black px-6 py-16 flex flex-col items-center gap-10">
         {/* Why us */}
         <div className="text-center max-w-2xl flex flex-col gap-4">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Why Us?</p>
+          <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Why Us?</p>
           <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
             Your favorite destination for beauty
           </h2>
@@ -174,19 +175,19 @@ function App() {
         </div>
 
         {/* Divider */}
-        <div className="w-16 h-px bg-[#FF66C4]/30" />
+        <div className="w-16 h-px bg-pink/30" />
 
         {/* Numbers */}
         <div className="flex items-center justify-center gap-16">
           <div className="flex flex-col items-center text-white gap-1">
-            <MdWorkspacePremium size={32} className="text-[#FF66C4] mb-1" />
-            <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">10+</span>
+            <MdWorkspacePremium size={32} className="text-pink mb-1" />
+            <span className="text-5xl font-bold text-pink tracking-tight">10+</span>
             <span className="text-sm opacity-50 tracking-widest uppercase">Years of Experience</span>
           </div>
           <div className="w-px h-16 bg-white/10" />
           <div className="flex flex-col items-center text-white gap-1">
-            <MdFavorite size={32} className="text-[#FF66C4] mb-1" />
-            <span className="text-5xl font-bold text-[#FF66C4] tracking-tight">7,000+</span>
+            <MdFavorite size={32} className="text-pink mb-1" />
+            <span className="text-5xl font-bold text-pink tracking-tight">7,000+</span>
             <span className="text-sm opacity-50 tracking-widest uppercase">Happy Clients</span>
           </div>
         </div>
@@ -195,13 +196,13 @@ function App() {
       {/* OFFERS */}
       <section className="bg-black py-20 px-6 flex flex-col items-center gap-10">
         <div className="text-center flex flex-col gap-3">
-          <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Limited Time</p>
+          <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Limited Time</p>
           <h2 className="text-4xl font-bold text-white tracking-tight">Special Offers</h2>
           <p className="text-neutral-400 max-w-md leading-relaxed">
             We constantly run special offers and deals. Follow us for the latest updates!
           </p>
           <a href="https://www.instagram.com/thebeautyspot_ma/" target="_blank" rel="noreferrer"
-            className="flex items-center justify-center gap-2 text-[#FF66C4] hover:opacity-80 transition-opacity font-semibold">
+            className="flex items-center justify-center gap-2 text-pink hover:opacity-80 transition-opacity font-semibold">
             <FaInstagram size={20} /> @thebeautyspot_ma
           </a>
         </div>
@@ -210,7 +211,7 @@ function App() {
           <span className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white/70" />
           {/* Bottom-right bracket */}
           <span className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white/70" />
-        <div className="bg-[#FF66C4] rounded-none px-14 py-12 flex flex-col items-center gap-3 text-center shadow-[0_0_60px_rgba(255,102,196,0.3)]">
+        <div className="bg-pink rounded-none px-14 py-12 flex flex-col items-center gap-3 text-center shadow-[0_0_60px_rgba(255,102,196,0.3)]">
           <h3 className="text-2xl font-bold tracking-[4px] uppercase text-black">Special Deals</h3>
           <div className="w-8 h-px bg-black/30 my-1" />
           <span className="text-6xl font-bold text-black tracking-tight leading-none">$25 OFF</span>
@@ -229,15 +230,15 @@ function App() {
 
       {/* SERVICES */}
       <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services" style={{ scrollMarginTop: '7rem' }}>
-        <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] text-center mb-3">What We Offer</p>
+        <p className="text-xs font-bold tracking-[3px] uppercase text-pink text-center mb-3">What We Offer</p>
         <h2 className="text-4xl font-bold text-center text-black tracking-tight mb-14">Our Services</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map(({ Icon, title, desc, href }) => (
             <div key={title} className="card-glow p-8 flex flex-col gap-3">
-              <Icon size={32} className="text-[#FF66C4]" />
+              <Icon size={32} className="text-pink" />
               <h3 className="font-semibold text-black text-lg">{title}</h3>
               <p className="text-sm text-neutral-500 leading-relaxed">{desc}</p>
-              {href && <a href={href} className="mt-auto pt-3 text-sm font-semibold text-[#b82e83] hover:underline">View treatments & prices <span aria-hidden="true">→</span><span className="sr-only"> for {title}</span></a>}
+              {href && <a href={href} className="mt-auto pt-3 text-sm font-semibold text-pink hover:underline">View treatments & prices <span aria-hidden="true">→</span><span className="sr-only"> for {title}</span></a>}
             </div>
           ))}
         </div>
@@ -248,7 +249,7 @@ function App() {
         <div className="max-w-5xl mx-auto flex flex-col gap-10">
           {/* Title — full width */}
           <div className="text-center flex flex-col gap-3">
-            <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4]">Our Story</p>
+            <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Our Story</p>
             <h2 className="text-4xl font-bold tracking-tight text-white">About Us</h2>
           </div>
           {/* Two columns */}
@@ -272,11 +273,11 @@ function App() {
       </section>
 
       {/* TEAM */}
-      <section className="py-24 px-6 bg-white">
+      <section id="team" className="scroll-mt-28 py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto flex flex-col gap-12">
           {/* Title */}
           <div className="text-center">
-            <p className="text-xs font-bold tracking-[3px] uppercase text-[#FF66C4] mb-3">The People Behind The Magic</p>
+            <p className="text-xs font-bold tracking-[3px] uppercase text-pink mb-3">The People Behind The Magic</p>
             <h2 className="text-4xl font-bold tracking-tight text-black">Our Team</h2>
           </div>
           {/* Content */}
@@ -297,12 +298,13 @@ function App() {
               your style, and what makes you feel your best. Every visit is a personalized experience
               designed just for you.
             </p>
-            <div className="w-10 h-px bg-[#FF66C4]/40" />
+            <div className="w-10 h-px bg-pink/40" />
             <p className="text-neutral-400 text-base italic">
               "We don't just do beauty — we build confidence."
             </p>
           </div>
           </div>
+          <TeamMembers />
         </div>
       </section>
 

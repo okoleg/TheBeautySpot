@@ -2,6 +2,107 @@
 
 ---
 
+## v0.16.4 — 2026-10-16
+
+### Released
+- Published the accumulated website updates to production and checked them into Git, including team profiles/portraits, header improvements, map directions, contact confirmation, and separate development/production settings.
+- Matched all Team portrait corners to the group photo's `rounded-2xl` radius and published the shared brand pink palette.
+- Verified the production build uses `thebeautyspotma@gmail.com`; development remains `okoleg@gmail.com`.
+- Production build and targeted component lint checks pass. Prior desktop/mobile checks cover team portraits, brand colors, navigation, and the intercepted contact-form return flow.
+- Email delivery remains unverified: the last real production submission encountered FormSubmit's Cloudflare security challenge. The new receiving address also requires its own activation.
+
+---
+
+## v0.16.3 — 2026-10-16
+
+### Changed
+- Standardized pink roles, labels, links, icons, focus/hover states, and prices to the brand pink `#FF66C4` throughout the homepage and Prices page.
+- Reused shared Tailwind color tokens from `frontend/src/index.css` for brand pink and pale pink backgrounds; primary buttons use the same brand token.
+- Deploy this change to development only; production publication requires an explicit owner request.
+
+---
+
+## v0.16.2 — 2026-10-16
+
+### Changed
+- Separated public contact recipients: development uses `okoleg@gmail.com`; production uses `thebeautyspotma@gmail.com`.
+- Default builds use development settings; `npm run build:production` explicitly selects production settings.
+- Production email activation is required for the new recipient after publication. Production publication remains an explicit owner action.
+
+---
+
+## v0.16.1 — 2026-10-16
+
+### Added
+- Added seven team profiles immediately after the existing Our Team introduction, using names, roles, portraits, and concise available bios from https://thebeautyspotma.com/.
+- Featured founders Iryna and Viktoriia above a responsive gallery for Naz, Hanna, Halina, Inna, and Marianna, with pink accents and curved portrait frames.
+- Stored portraits locally and checked image loading, content order, and layouts at 320px, 390px, and 1440px.
+
+---
+
+## v0.16.0 — 2026-10-16
+
+### Changed
+- Configured `thebeautyspotma-af603` as production and `thebeautyspot-3e54c` as development using explicit Firebase CLI aliases.
+- Deployed the full current website to https://thebeautyspotma-af603.web.app, including Prices, photos/videos, contact form, maps, and booking links.
+- Verified Prices and navigation at 320–1440px widths, section anchors, and the form's request/confirmation behavior with intercepted requests. A real production-domain form test reached FormSubmit but received a Cloudflare HTTP 403 security challenge; delivery from this new domain remains unverified.
+- Updated header labels to Services, Prices, About, Location & Hours, and Contact; enlarged the logo and added mobile calendar/Book and tap-to-call buttons.
+
+---
+
+## v0.15.6 — 2026-10-16
+
+### Changed
+- Split the shared desktop/mobile Contact link into Visit Us (address, hours, and map) and Contact Us (message form), including navigation from Prices.
+- Replaced the map's arrow circle with a car icon and Driving directions label; Google Maps opens in driving mode.
+
+---
+
+## v0.15.5 — 2026-10-16
+
+### Changed
+- After returning from a successful contact submission, the thank-you message replaces all form fields and the Send message button.
+
+---
+
+## v0.15.4 — 2026-10-16
+
+### Fixed
+- Kept the original contact form from v0.15.0 with validation, optional phone/treatment, sending feedback, and inline confirmation.
+- Removed the additional FormSubmit reCAPTCHA screen using its documented configuration; retained the hidden honeypot.
+- A live test of the previous production form confirmed that clicking Send stopped at the provider's verification screen.
+- After deployment, a real production submission was accepted and redirected to the site's inline confirmation without CAPTCHA or activation screens. Inbox receipt awaits recipient confirmation.
+
+---
+
+## v0.15.3 — 2026-10-16
+
+### Changed
+- Rolled back the contact-form confirmation modal, submitted-value restoration, and form lock.
+- Restored the simple inline confirmation and normal enabled form after returning from the email provider.
+- Removed the submission-state helper and regression script specific to the rolled-back feature.
+
+---
+
+## v0.15.2 — 2026-10-16
+
+### Fixed
+- Fixed real Send message clicks losing the submission ID when React updated the sending state. The return URL is now set in the browser's final form data, preserving the confirmation modal and submitted values after the provider returns.
+- Added a browser regression script that uses actual pointer clicks and checks the completed-form lock, values, modal dismissal, refresh, and reopening. Email-provider redirects are intercepted in these UI tests.
+
+---
+
+## v0.15.1 — 2026-10-15
+
+### What's New
+- Replaced the inline contact-form confirmation with a modal.
+- Preserved submitted values after returning from the email provider, disabled the completed form, and changed the button to "Message was submitted".
+- Closing the modal keeps the form locked; refreshing or reopening the page enables a new message.
+- Used one-time tab storage to restore values without placing personal details in the return URL; verified desktop/mobile behavior with mocked provider redirects.
+- Excluded unused original MOV copies from Hosting deployments to reduce storage; removed two approved inactive April 14 Hosting snapshots after reaching the storage quota.
+
+---
+
 ## v0.15.0 — 2026-10-15
 
 ### What's New
