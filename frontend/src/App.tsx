@@ -3,9 +3,8 @@ import SiteFooter from './components/SiteFooter'
 import FindUs from './components/FindUs'
 import ContactForm from './components/ContactForm'
 import TeamMembers from './components/TeamMembers'
-import ServiceDesignPreviews from './components/ServiceDesignPreviews'
+import ServicesSection from './components/ServicesSection'
 import { BOOKING_URL } from './data'
-import { serviceCards as SERVICES } from './serviceCatalog'
 import { useEffect, useRef, useState } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 import {
@@ -26,6 +25,7 @@ const HERO_PHOTOS = [
 function App() {
   const [photoIndex, setPhotoIndex] = useState(0)
   const [videoModal, setVideoModal] = useState<string | null>(null)
+  const [imageModal, setImageModal] = useState<string | null>(null)
   const [textIndex, setTextIndex] = useState(0)
   const [textVisible, setTextVisible] = useState(true)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
@@ -64,6 +64,18 @@ function App() {
     startTimer()
   }
 
+  useEffect(() => {
+    if (!videoModal && !imageModal) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setVideoModal(null)
+        setImageModal(null)
+      }
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [videoModal, imageModal])
+
   return (
     <div className="min-h-screen flex flex-col font-sans text-neutral-800 bg-white">
 
@@ -76,20 +88,51 @@ function App() {
         {/* Left column: collage grid */}
         <div className="grid flex-1 grid-cols-3 grid-rows-3 overflow-hidden">
           {[1,2,3,4,5,6,7,8,9].map(n => {
-            const videoMap: Record<number, string> = { 1: '/video1.mp4', 3: '/video3.mp4', 4: '/video4.mp4' }
+            const videoMap: Record<number, string> = { 1: '/video-img-1227.mp4', 3: '/video-img-7315.mp4', 5: '/video-img-0971.mp4', 7: '/video-img-9771.mp4', 9: '/video-img-9825.mp4' }
+            const imageMap: Record<number, string> = {
+              2: '/collage2.jpg',
+              4: '/collage4.jpg?v=20261019-dmk',
+              6: '/collage6.jpg',
+              8: '/collage8.jpg?v=20261019-img-7413',
+            }
             const hasVideo = n in videoMap
+            const hasImage = n in imageMap
+            const isInteractive = hasVideo || hasImage
+            const thumbnailVersion: Record<number, string> = { 1: '20261019-last-frame', 3: '20261018-4s', 4: '20261019-dmk', 5: '20261018-5s', 7: '20261019-27s', 8: '20261019-img-7413', 9: '20261018-27s' }
+            const thumbnailUrl = `/collage${n}.jpg${thumbnailVersion[n] ? `?v=${thumbnailVersion[n]}` : ''}`
+            const openMedia = () => {
+              if (hasVideo) setVideoModal(videoMap[n])
+              if (hasImage) setImageModal(imageMap[n])
+            }
             return (
               <div
                 key={n}
-                className={`relative overflow-hidden transition-all duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl aspect-square md:aspect-auto ${hasVideo ? 'cursor-pointer' : ''}`}
-                onClick={() => hasVideo && setVideoModal(videoMap[n])}
+                role={isInteractive ? 'button' : undefined}
+                tabIndex={isInteractive ? 0 : undefined}
+                aria-label={hasVideo ? `Play studio video ${n}` : hasImage ? `View studio image ${n}` : undefined}
+                className={`relative overflow-hidden transition-all duration-500 hover:scale-105 hover:z-10 hover:shadow-2xl aspect-square md:aspect-auto ${isInteractive ? 'cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-pink' : ''}`}
+                onClick={openMedia}
+                onKeyDown={event => {
+                  if (isInteractive && (event.key === 'Enter' || event.key === ' ')) {
+                    event.preventDefault()
+                    openMedia()
+                  }
+                }}
               >
-                <div className="w-full h-full bg-cover bg-center transition-transform duration-500 hover:scale-110" style={{ backgroundImage: `url(/collage${n}.jpg)` }} />
+                <div className="w-full h-full bg-cover bg-center transition-transform duration-500 hover:scale-110" style={{ backgroundImage: `url(${thumbnailUrl})` }} />
                 {hasVideo && (
                   <div className="absolute top-4 right-5 pointer-events-none">
                     <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <rect width="28" height="28" rx="6" fill="rgba(255,255,255,0.85)"/>
                       <path d="M8 12 Q8 6.5 12.5 8.5 L18.5 11.5 Q23 14 18.5 16.5 L12.5 19.5 Q8 21.5 8 16 Z" fill="#111"/>
+                    </svg>
+                  </div>
+                )}
+                {hasImage && (
+                  <div className="absolute top-4 right-5 pointer-events-none">
+                    <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="28" height="28" rx="6" fill="rgba(255,255,255,0.85)"/>
+                      <path d="M11 8H8v3M17 8h3v3M11 20H8v-3M17 20h3v-3" stroke="#111" strokeWidth="1.8" strokeLinecap="round"/>
                     </svg>
                   </div>
                 )}
@@ -170,17 +213,17 @@ function App() {
         <div className="w-16 h-px bg-pink/30" />
 
         {/* Numbers */}
-        <div className="flex items-center justify-center gap-16">
+        <div className="flex items-center justify-center gap-4 sm:gap-16">
           <div className="flex flex-col items-center text-white gap-1">
             <MdWorkspacePremium size={32} className="text-pink mb-1" />
-            <span className="text-5xl font-bold text-pink tracking-tight">10+</span>
-            <span className="text-sm opacity-50 tracking-widest uppercase">Years of Experience</span>
+            <span className="text-4xl font-bold text-pink tracking-tight sm:text-5xl">10+</span>
+            <span className="text-[10px] opacity-50 tracking-wide uppercase sm:text-sm sm:tracking-widest">Years of Experience</span>
           </div>
           <div className="w-px h-16 bg-white/10" />
           <div className="flex flex-col items-center text-white gap-1">
             <MdFavorite size={32} className="text-pink mb-1" />
-            <span className="text-5xl font-bold text-pink tracking-tight">7,000+</span>
-            <span className="text-sm opacity-50 tracking-widest uppercase">Happy Clients</span>
+            <span className="text-4xl font-bold text-pink tracking-tight sm:text-5xl">7,000+</span>
+            <span className="text-[10px] opacity-50 tracking-wide uppercase sm:text-sm sm:tracking-widest">Happy Clients</span>
           </div>
         </div>
       </section>
@@ -220,29 +263,7 @@ function App() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-24 px-6 max-w-5xl mx-auto w-full" id="services" style={{ scrollMarginTop: '7rem' }}>
-        <p className="text-xs font-bold tracking-[3px] uppercase text-pink text-center mb-3">What We Offer</p>
-        <h2 className="text-4xl font-bold text-center text-black tracking-tight mb-14">Our Services</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map(({ Icon, title, desc, href, image }) => (
-            <a key={title} href={href} aria-label={`Explore ${title}`} className="service-link-card group relative isolate flex min-h-[420px] flex-col overflow-hidden rounded-2xl bg-black p-6 shadow-lg">
-              <img src={image} alt="" loading="lazy" decoding="async" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
-              <div aria-hidden="true" className="absolute inset-0 -z-10 bg-gradient-to-t from-black/95 via-black/55 to-black/10" />
-              <span className="mb-16 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/40 text-pink backdrop-blur-sm"><Icon size={28} aria-hidden="true" /></span>
-              <div className="mt-auto flex flex-col gap-3">
-                <h3 className="min-h-14 text-xl font-semibold leading-7 text-white">{title}</h3>
-                <p className="min-h-[72px] text-sm leading-6 text-white/90">{desc}</p>
-                <div className="min-h-12 pt-2">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-pink group-hover:underline group-focus-visible:underline">Explore treatments <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span></span>
-                </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <ServiceDesignPreviews services={SERVICES} />
+      <ServicesSection />
 
       {/* ABOUT */}
       <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about" style={{ scrollMarginTop: '7rem' }}>
@@ -315,23 +336,53 @@ function App() {
       {/* VIDEO MODAL */}
       {videoModal && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Studio video"
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center"
           onClick={() => setVideoModal(null)}
         >
           <button
+            aria-label="Close video"
             onClick={() => setVideoModal(null)}
             className="absolute top-4 right-4 z-10 text-white/70 hover:text-white text-6xl leading-none cursor-pointer"
           >
             ✕
           </button>
-          <div className="relative max-w-3xl w-full mx-4">
+          <div className="relative max-w-3xl w-full mx-4" onClick={event => event.stopPropagation()}>
             <video
               src={videoModal}
               autoPlay
               playsInline
-              className="w-full rounded-xl shadow-2xl"
+              controls
+              className="w-full max-h-[85dvh] rounded-xl shadow-2xl"
             />
           </div>
+        </div>
+      )}
+
+      {/* IMAGE MODAL */}
+      {imageModal && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Studio image"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setImageModal(null)}
+        >
+          <button
+            aria-label="Close image"
+            onClick={() => setImageModal(null)}
+            className="absolute top-4 right-4 z-10 text-white/70 hover:text-white text-6xl leading-none cursor-pointer"
+          >
+            ✕
+          </button>
+          <img
+            src={imageModal}
+            alt="Beauty treatment result"
+            className="max-w-full max-h-[85dvh] object-contain rounded-xl shadow-2xl"
+            onClick={event => event.stopPropagation()}
+          />
         </div>
       )}
 

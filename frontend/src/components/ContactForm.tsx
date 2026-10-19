@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { MdArrowForward, MdCall, MdCheckCircle } from 'react-icons/md'
 import { PHONE, PHONE_HREF } from '../data'
+import { serviceCards } from '../serviceCatalog'
 
 const recipient = import.meta.env.VITE_CONTACT_EMAIL?.trim()
 const inputClass = 'mt-2 w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-800 outline-none transition-colors placeholder:text-neutral-400 focus:border-pink focus:ring-2 focus:ring-pink/20 disabled:opacity-60'
@@ -82,7 +83,8 @@ export default function ContactForm() {
               <label className="block text-sm font-medium text-neutral-700" htmlFor="contact-treatment">Treatment <span className="font-normal text-neutral-500">(optional)</span>
                 <select id="contact-treatment" name="treatment" defaultValue="" className={inputClass}>
                   <option value="">Select a treatment</option>
-                  <option>Body Treatments</option><option>Brows & Lashes</option><option>Skin Care</option><option>Makeup</option><option>Other / Not sure yet</option>
+                  {serviceCards.map(service => <option key={service.href}>{service.title}</option>)}
+                  <option>Other / Not sure yet</option>
                 </select>
               </label>
             </div>

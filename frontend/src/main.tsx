@@ -6,10 +6,15 @@ import ScrollToTop from './components/ScrollToTop.tsx'
 import { getBookingUrl, type BookingCategory } from './booking'
 import { serviceCards } from './serviceCatalog'
 import ServiceDetailPage from './components/ServiceDetailPage'
+import { teamMembers } from './teamCatalog'
+import TeamDetailPage from './components/TeamDetailPage'
 
 const pathname = window.location.pathname.replace(/\/$/, '')
-const service = serviceCards.find(item => item.href === pathname)
+const servicePath = pathname === '/treatments/brows-lashes' ? '/treatments/brows' : pathname
+const service = serviceCards.find(item => item.href === servicePath)
+const teamMember = teamMembers.find(member => member.href === pathname)
 if (service) document.title = `${service.title} | The Beauty Spot`
+if (teamMember) document.title = `${teamMember.name} | The Beauty Spot`
 const isRetiredPricesPage = pathname === '/prices' || pathname === '/services' || pathname.startsWith('/services/')
 if (isRetiredPricesPage) {
   const target = pathname === '/prices' ? window.location.hash.slice(1) : pathname.split('/').at(-1) || ''
@@ -21,6 +26,7 @@ if (isRetiredPricesPage) {
   window.location.replace(getBookingUrl(category))
 }
 const canonicalUrl = new URL(window.location.href)
+if (servicePath !== pathname) canonicalUrl.pathname = servicePath
 canonicalUrl.searchParams.delete('v')
 if (canonicalUrl.href !== window.location.href) {
   window.history.replaceState(null, '', `${canonicalUrl.pathname}${canonicalUrl.search}${canonicalUrl.hash}`)
@@ -28,7 +34,7 @@ if (canonicalUrl.href !== window.location.href) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {service ? <ServiceDetailPage service={service} /> : isRetiredPricesPage ? null : <App />}
+    {teamMember ? <TeamDetailPage member={teamMember} /> : service ? <ServiceDetailPage service={service} /> : isRetiredPricesPage ? null : <App />}
     <ScrollToTop />
   </StrictMode>,
 )

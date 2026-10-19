@@ -2,6 +2,83 @@
 
 ---
 
+## v0.20.0 — 2026-10-19
+
+### Released
+- Published the eight-service catalog and seven dedicated team profile pages to production, including responsive related-service and related-team navigation.
+- Updated the homepage collage so cells 1, 3, 5, 7, and 9 play their assigned optimized MP4 videos in an accessible modal with controls.
+- Updated cells 2, 4, 6, and 8 to open their full images in the same responsive modal style; cell 4 now uses the supplied DMK product image instead of its previous video.
+- Generated matching video thumbnails from the selected frames and added versioned image URLs so browsers load the latest artwork immediately.
+- Added pointer and keyboard interaction cues, Escape and backdrop closing, responsive media sizing, and explicit close controls.
+- Removed all inactive development Hosting releases after receiving owner approval, leaving only the current development release and eliminating the accumulated storage overage.
+- Verified production-mode builds, responsive team/service pages, collage media interactions, production contact configuration, and deployed asset availability.
+
+---
+
+## v0.19.0 — 2026-10-17
+
+### Added
+- Added seven dedicated team profile pages under `/team/...`, using the service-page layout with shared header/footer, rounded portraits, full biographies, specialties, booking, and relevant service links.
+- Made every homepage team card a full-card link with pink hover/focus outlines, a subtle lift, and Read profile arrows. Homepage cards now show concise introductions while profile pages retain the full supplied biographies.
+- Added a bottom navigation gallery linking to all six other team members on each profile page.
+- Centralized team content in `frontend/src/teamCatalog.tsx` and linked the Makeup page's specialist card to Marina Dvortsova's current profile.
+- Verified all seven profiles at 1440px, 390px, and 320px, including image-area pointer clicks, keyboard Enter navigation, full biographies, direct reloads, and related-member links. Build and targeted lint checks pass. Deploy to development only.
+
+---
+
+## v0.18.5 — 2026-10-17
+
+### Changed
+- Updated team position seven to Marina Dvortsova with the supplied portrait, professional makeup artist role, and full biography.
+- Preserved the shared rounded portrait styling. Deploy to development only.
+
+---
+
+## v0.18.4 — 2026-10-17
+
+### Changed
+- Updated team position six to Anastasia Karnei with the supplied portrait, licensed cosmetologist/hair extension specialist role, and complete biography.
+- Preserved emphasis on Italian Hot Fusion (K-Tip) Hair Extensions and the existing rounded portrait styling. Deploy to development only.
+
+---
+
+## v0.18.3 — 2026-10-17
+
+### Changed
+- Updated team position five to Alexandra Konovalova with the supplied full biography and licensed esthetician role.
+- Converted the supplied `IMG_0269.HEIC` portrait to JPEG for browser compatibility and kept the shared rounded portrait styling. Deploy to development only.
+
+---
+
+## v0.18.2 — 2026-10-17
+
+### Changed
+- Updated team position four to Halina Eismont with the supplied portrait, licensed esthetician role, and full biography.
+- Moved her existing profile into that position and retained Hanna in the following position, avoiding a duplicate Halina profile.
+- Kept the shared rounded portrait styling. Deploy to development only.
+
+---
+
+## v0.18.1 — 2026-10-17
+
+### Changed
+- Replaced the third team profile with Viktoriia Ziborov using the supplied portrait, licensed esthetician/Master Lash/Brow Artist role, and full description.
+- Preserved the shared `rounded-2xl` portrait styling and team layout. Deploy to development only.
+
+---
+
+## v0.18.0 — 2026-10-17
+
+### Changed
+- Kept only Services Design 9: square image cards, white footers, and dark icon circles; removed the comparison component and original tall-card section.
+- Added eight cards and individual pages for Specials, Lashes, Skin Care, Brows, Makeup, Body Care, Hair Extensions, and Laser.
+- Split the existing brow/lash treatment data between separate pages and preserved the old combined URL as an alias to Brows.
+- Added Specials category booking links. Hair Extensions and Laser use owner-approved overview content, existing salon imagery, contact links, and general Square booking links pending detailed service information.
+- Updated the contact-form treatment choices to match the eight categories. Deploy to development only.
+- Verified all eight pages, square-card proportions, image loading, separate brow/lash treatment lists, and overview/contact fallbacks at 1440px, 390px, and 320px; confirmed the live Square Specials category. Fixed narrow-screen counter overflow found during these checks.
+
+---
+
 ## v0.17.0 — 2026-10-16
 
 ### Released
