@@ -11,6 +11,8 @@ export type ServiceCard = {
   imagePosition?: string
   menuSlug?: string
   bookingCategory?: BookingCategory
+  comingSoon?: boolean
+  contactOnly?: boolean
   sectionGroup?: 'brows' | 'lashes'
   intro?: string
   overview?: {
@@ -22,7 +24,7 @@ export type ServiceCard = {
 
 export const serviceCards: ServiceCard[] = [
   {
-    Icon: MdLocalOffer, title: '🪩 Specials 🪩', desc: 'Explore our current offers and find your next moment of care.', href: '/treatments/specials', image: '/VikaIryna.jpg', imagePosition: 'center top', bookingCategory: 'specials',
+    Icon: MdLocalOffer, title: 'Specials', desc: 'Explore our current offers and find your next moment of care.', href: '/treatments/specials', image: '/services/specials.jpg', imagePosition: 'center center', bookingCategory: 'specials',
     overview: {
       heading: 'Discover our current specials',
       intro: 'Find the latest offers on our Square booking page. Select Specials to see current treatments, prices, and appointment availability.',
@@ -33,32 +35,32 @@ export const serviceCards: ServiceCard[] = [
       ],
     },
   },
-  { Icon: MdAutoAwesome, title: 'Lashes', desc: 'Lash lifts, extensions, and fills tailored to your look.', href: '/treatments/lashes', image: '/collage5.jpg', menuSlug: 'brows-lashes', bookingCategory: 'lashes', sectionGroup: 'lashes', intro: 'Explore lash lifts, full sets, and maintenance fills, from classic to volume styles.' },
   { Icon: MdFaceRetouchingNatural, title: 'Skin Care', desc: 'Personalized skin treatments for a radiant, healthy glow.', href: '/treatments/skin-care', image: '/services/skin-care.jpg', menuSlug: 'skin-care', bookingCategory: 'skin-care' },
+  { Icon: MdAutoAwesome, title: 'Lashes', desc: 'Lash lifts, extensions, and fills tailored to your look.', href: '/treatments/lashes', image: '/services/lashes.jpg', imagePosition: 'center center', menuSlug: 'brows-lashes', bookingCategory: 'lashes', sectionGroup: 'lashes', intro: 'Explore lash lifts, full sets, and maintenance fills, from classic to volume styles.' },
   { Icon: MdVisibility, title: 'Brows', desc: 'Shaping, tinting, and lamination to frame your features.', href: '/treatments/brows', image: '/services/brows-lashes.jpg', menuSlug: 'brows-lashes', bookingCategory: 'brows', sectionGroup: 'brows', intro: 'Explore brow shaping, tinting, and lamination, with options to suit your preferred look.' },
-  { Icon: MdBrush, title: 'Makeup', desc: 'From natural everyday looks to full glam for any occasion.', href: '/treatments/makeup', image: '/services/makeup.jpg', bookingCategory: 'makeup' },
   { Icon: MdSpa, title: 'Body Care', desc: 'Body treatments and LPG contouring therapy for total care.', href: '/treatments/body', image: '/services/body-care.jpg', imagePosition: 'center 30%', menuSlug: 'body', bookingCategory: 'body' },
+  { Icon: MdBrush, title: 'Makeup', desc: 'From natural everyday looks to full glam for any occasion.', href: '/treatments/makeup', image: '/services/makeup.jpg', bookingCategory: 'makeup' },
   {
-    Icon: MdContentCut, title: 'Hair Extensions', desc: 'Explore extension options and plan your new look with our team.', href: '/treatments/hair-extensions', image: '/team/hanna.png',
+    Icon: MdContentCut, title: 'Hair Extensions', desc: 'Italian Hot Fusion extensions for personalized length, volume, and density.', href: '/treatments/hair-extensions', image: '/services/hair-extensions.jpg', imagePosition: 'center center', contactOnly: true,
     overview: {
-      heading: 'Let’s plan your hair extensions',
-      intro: 'Tell us the look you have in mind. Our team can discuss available extension options and help you plan your appointment.',
+      heading: 'Hair extension installation',
+      intro: 'Schedule a consultation so we can discuss your desired length, volume, color match, and the amount of hair needed. Hair is purchased separately; the prices below cover installation only.',
       details: [
-        { title: 'Your preferred look', text: 'Share your goals for length, volume, and your overall look when you contact our team.' },
-        { title: 'Discuss the details', text: 'Ask about available methods, color matching, appointment preparation, and ongoing care.' },
-        { title: 'Pricing & appointments', text: 'Contact us for service details and pricing, or check the booking page for available appointments.' },
+        { title: 'Length & volume · $600', text: 'A full installation designed to add both length and volume.' },
+        { title: 'Density & thickness · $400', text: 'Installation focused on adding density and fullness to your natural hair.' },
+        { title: 'Temple area · $250', text: 'Targeted extensions for added fullness around the temple area.' },
       ],
     },
   },
   {
-    Icon: MdFlare, title: 'Laser', desc: 'Talk to our team about laser services and appointment options.', href: '/treatments/laser', image: '/services/skin-care.jpg',
+    Icon: MdFlare, title: 'Laser Hair Removal', desc: 'Laser hair removal services are coming soon.', href: '/treatments/laser', image: '/services/laser.jpg', comingSoon: true,
     overview: {
-      heading: 'Explore laser services',
-      intro: 'Contact our team to learn about available laser services and discuss your goals before arranging an appointment.',
+      heading: 'Laser hair removal is coming soon',
+      intro: 'We’re preparing to bring laser hair removal services to The Beauty Spot. Contact our team if you would like updates as details become available.',
       details: [
-        { title: 'Start with your questions', text: 'Tell us what you would like to discuss so our team can explain the available service options.' },
-        { title: 'Plan your visit', text: 'Ask our team about appointment preparation, service details, and any consultation requirements.' },
-        { title: 'Pricing & appointments', text: 'Contact us for current details and pricing, or check the booking page for available appointments.' },
+        { title: 'Coming soon', text: 'Service details, preparation guidance, and appointment availability will be shared when booking opens.' },
+        { title: 'Stay updated', text: 'Contact our team to let us know you are interested and ask about the latest launch information.' },
+        { title: 'Questions?', text: 'We’ll be happy to help with general questions while the new service is being prepared.' },
       ],
     },
   },

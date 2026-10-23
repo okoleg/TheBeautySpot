@@ -1,5 +1,6 @@
 import { MdArrowForward, MdAutoAwesome } from 'react-icons/md'
 import { founders, specialists } from '../teamCatalog'
+import { assetUrl } from '../assetUrl'
 
 export default function TeamMembers() {
   return (
@@ -16,7 +17,7 @@ export default function TeamMembers() {
         {founders.map(member => (
           <a key={member.href} href={member.href} aria-label={`Read ${member.name}’s profile`} className="service-link-card group block min-w-0 rounded-2xl">
             <div className="relative overflow-hidden rounded-2xl bg-pink-soft">
-              <img src={member.image} alt={member.name} loading="lazy" decoding="async" width={432} height={640} className="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.025]" />
+              <img src={assetUrl(member.image)} alt={member.name} loading="lazy" decoding="async" width={432} height={640} className="aspect-[4/5] w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.025]" />
               <span className="absolute bottom-5 left-5 rounded-full bg-white/95 px-4 py-2 text-xs font-semibold text-pink shadow-sm">{member.specialty}</span>
             </div>
             <div className="border-b border-pink/30 pb-7 pt-5">
@@ -33,7 +34,7 @@ export default function TeamMembers() {
         {specialists.map(member => (
           <a key={member.href} href={member.href} aria-label={`Read ${member.name}’s profile`} className="service-link-card group block min-w-0 rounded-2xl">
             <div className="overflow-hidden rounded-2xl bg-pink-soft">
-              <img src={member.image} alt={member.name} loading="lazy" decoding="async" width={432} height={640} className="aspect-[3/4] w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.04]" />
+              <img src={assetUrl(member.image)} alt={member.name} loading="lazy" decoding="async" width={432} height={640} className="aspect-[3/4] w-full object-cover object-top transition-transform duration-500 motion-safe:group-hover:scale-[1.04]" />
             </div>
             <div className="mt-4 h-0.5 w-7 bg-pink" aria-hidden="true" />
             <h4 className="mt-3 text-xl font-bold tracking-tight text-black">{member.name}</h4>

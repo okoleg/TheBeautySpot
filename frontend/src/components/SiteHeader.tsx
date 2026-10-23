@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { MdCalendarMonth, MdCall, MdClose, MdMenu } from 'react-icons/md'
 import { BOOKING_URL, PHONE, PHONE_HREF } from '../data'
+import { assetUrl } from '../assetUrl'
 import useHashScroll from '../useHashScroll'
 import '../App.css'
 
@@ -32,7 +33,7 @@ export default function SiteHeader() {
     <header className={`sticky top-0 z-20 border-b border-pink/10 font-sans text-neutral-800 shadow-sm backdrop-blur-md transition-[background-color] duration-300 ${scrolled ? 'bg-white/80' : 'bg-white/95'}`}>
       <div className="flex items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-5">
         <a href="/" aria-label="The Beauty Spot home" className="min-w-0">
-          <img src="/TheBeautySpotLogo.svg" alt="The Beauty Spot" className="h-auto w-40 max-w-full sm:w-64 xl:w-80 object-contain" />
+          <img src={assetUrl('/TheBeautySpotLogo.svg')} alt="The Beauty Spot" className="h-auto w-40 max-w-full sm:w-64 xl:w-80 object-contain" />
         </a>
         <nav aria-label="Main navigation" className="hidden lg:flex gap-4 text-sm text-neutral-500 xl:gap-8 xl:text-base">
           {links.map(({ label, href }) => (

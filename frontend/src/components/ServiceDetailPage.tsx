@@ -5,6 +5,7 @@ import { serviceMenus } from '../serviceMenus'
 import { teamMembers } from '../teamCatalog'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
+import { assetUrl } from '../assetUrl'
 
 export default function ServiceDetailPage({ service }: { service: ServiceCard }) {
   const sourceMenu = serviceMenus.find(item => item.slug === service.menuSlug)
@@ -15,6 +16,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
   }
   const bookingUrl = getBookingUrl(service.bookingCategory)
   const makeupArtist = teamMembers.find(member => member.href === '/team/marina-dvortsova')
+  const relatedServices = serviceCards.filter(item => item.href !== service.href)
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <SiteHeader />
@@ -27,11 +29,17 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
               <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">{service.title}</h1>
               <p className="mt-6 text-lg leading-8 text-neutral-600">{service.desc}</p>
               <div className="mt-8 flex flex-wrap items-center gap-5">
-                <a href={bookingUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2"><MdCalendarMonth size={20} aria-hidden="true" />Book now</a>
-                <a href={bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">{service.bookingCategory === 'specials' ? 'View current specials' : 'View prices'}<MdArrowForward aria-hidden="true" /></a>
+                {service.comingSoon || service.contactOnly ? (
+                  <a href="/#contact-form" className="btn-primary gap-2">{service.contactOnly ? 'Schedule a consultation' : 'Contact us'}<MdArrowForward aria-hidden="true" /></a>
+                ) : (
+                  <>
+                    <a href={bookingUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2"><MdCalendarMonth size={20} aria-hidden="true" />Book now</a>
+                    <a href={bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">{service.bookingCategory === 'specials' ? 'View current specials' : 'View prices'}<MdArrowForward aria-hidden="true" /></a>
+                  </>
+                )}
               </div>
             </div>
-            <img src={service.image} alt={service.title} style={{ objectPosition: service.imagePosition }} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" />
+            <img src={assetUrl(service.image)} alt={service.title} style={{ objectPosition: service.imagePosition }} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-lg" />
           </div>
         </section>
 
@@ -76,11 +84,11 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
                   </div>
                 ))}
               </div>
-              <a href="/#contact-form" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">Ask our team<MdArrowForward aria-hidden="true" /></a>
+              <a href="/#contact-form" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">{service.contactOnly ? 'Contact us to schedule your consultation' : 'Ask our team'}<MdArrowForward aria-hidden="true" /></a>
             </div>
           ) : makeupArtist ? (
             <a href={makeupArtist.href} className="service-link-card group mt-10 grid items-center gap-8 rounded-2xl border-t border-pink/30 pt-8 sm:grid-cols-[180px_1fr]">
-              <img src={makeupArtist.image} alt={makeupArtist.name} loading="lazy" className="aspect-[3/4] w-44 rounded-2xl object-cover object-top" />
+              <img src={assetUrl(makeupArtist.image)} alt={makeupArtist.name} loading="lazy" className="aspect-[3/4] w-44 rounded-2xl object-cover object-top" />
               <div>
                 <h3 className="text-2xl font-bold text-black">Meet {makeupArtist.name}</h3>
                 <p className="mt-2 text-sm font-medium text-pink">{makeupArtist.role}</p>
@@ -94,10 +102,13 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
         <section className="border-t border-pink/20 bg-pink-soft px-6 py-16" aria-labelledby="more-services-heading">
           <div className="mx-auto max-w-5xl">
             <h2 id="more-services-heading" className="mb-7 text-3xl font-bold text-black">More to explore</h2>
-            <div className="grid gap-5 sm:grid-cols-3">
-              {serviceCards.filter(item => item.href !== service.href).slice(0, 3).map(item => (
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedServices.map(item => (
                 <a key={item.href} href={item.href} className="service-link-card group overflow-hidden rounded-2xl bg-white shadow-sm">
-                  <img src={item.image} alt="" loading="lazy" style={{ objectPosition: item.imagePosition }} className="aspect-[2/1] w-full object-cover" />
+                  <div className="relative">
+                    <img src={assetUrl(item.image)} alt="" loading="lazy" style={{ objectPosition: item.imagePosition }} className="aspect-[2/1] w-full object-cover" />
+                    {item.comingSoon && <span className="absolute right-3 top-3 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-black backdrop-blur-sm">Coming soon</span>}
+                  </div>
                   <span className="flex items-center justify-between gap-3 p-5 text-sm font-semibold text-black">{item.title}<MdArrowForward className="shrink-0 text-pink transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
                 </a>
               ))}

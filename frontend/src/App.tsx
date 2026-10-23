@@ -5,6 +5,7 @@ import ContactForm from './components/ContactForm'
 import TeamMembers from './components/TeamMembers'
 import ServicesSection from './components/ServicesSection'
 import { BOOKING_URL } from './data'
+import { assetUrl } from './assetUrl'
 import { useEffect, useRef, useState } from 'react'
 import { FaInstagram } from 'react-icons/fa'
 import {
@@ -91,15 +92,14 @@ function App() {
             const videoMap: Record<number, string> = { 1: '/video-img-1227.mp4', 3: '/video-img-7315.mp4', 5: '/video-img-0971.mp4', 7: '/video-img-9771.mp4', 9: '/video-img-9825.mp4' }
             const imageMap: Record<number, string> = {
               2: '/collage2.jpg',
-              4: '/collage4.jpg?v=20261019-dmk',
+              4: '/collage4.jpg',
               6: '/collage6.jpg',
-              8: '/collage8.jpg?v=20261019-img-7413',
+              8: '/collage8.jpg',
             }
             const hasVideo = n in videoMap
             const hasImage = n in imageMap
             const isInteractive = hasVideo || hasImage
-            const thumbnailVersion: Record<number, string> = { 1: '20261019-last-frame', 3: '20261018-4s', 4: '20261019-dmk', 5: '20261018-5s', 7: '20261019-27s', 8: '20261019-img-7413', 9: '20261018-27s' }
-            const thumbnailUrl = `/collage${n}.jpg${thumbnailVersion[n] ? `?v=${thumbnailVersion[n]}` : ''}`
+            const thumbnailUrl = assetUrl(`/collage${n}.jpg`)
             const openMedia = () => {
               if (hasVideo) setVideoModal(videoMap[n])
               if (hasImage) setImageModal(imageMap[n])
@@ -150,7 +150,7 @@ function App() {
               key={photo.src}
               className="absolute inset-0 bg-cover bg-top bg-no-repeat pointer-events-none"
               style={{
-                backgroundImage: `url(${photo.src})`,
+                backgroundImage: `url(${assetUrl(photo.src)})`,
                 opacity: i === photoIndex ? 1 : 0,
                 transition: 'opacity 1s ease-in-out',
               }}
@@ -305,7 +305,7 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Photo */}
           <div className="overflow-hidden rounded-2xl shadow-lg">
-            <img src="/Team.jpg" alt="Our Team" className="w-full h-full object-cover object-top" />
+            <img src={assetUrl('/Team.jpg')} alt="Our Team" className="w-full h-full object-cover object-top" />
           </div>
           {/* Text */}
           <div className="flex flex-col gap-5">
@@ -378,7 +378,7 @@ function App() {
             ✕
           </button>
           <img
-            src={imageModal}
+            src={assetUrl(imageModal)}
             alt="Beauty treatment result"
             className="max-w-full max-h-[85dvh] object-contain rounded-xl shadow-2xl"
             onClick={event => event.stopPropagation()}

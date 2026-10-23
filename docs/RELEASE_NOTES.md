@@ -2,6 +2,20 @@
 
 ---
 
+## v0.21.0 — 2026-10-23
+
+### Released
+- Published the final eight-service order across the homepage and all related-service navigation: Specials, Skin Care, Lashes, Brows, Body Care, Makeup, Hair Extensions, and Laser Hair Removal.
+- Replaced the service artwork with the supplied images for Specials, Skin Care, Lashes, Brows, Body Care, Makeup, Hair Extensions, and Laser Hair Removal.
+- Added one centralized version to every local image URL so updated gallery, service, team, hero, modal, and logo images bypass stale browser caches after deployment.
+- Expanded “More to explore” on every service page to show all seven other services in the same order, including the Laser Hair Removal “Coming soon” label.
+- Updated Hair Extensions with installation pricing for full length and volume ($600), density and thickness ($400), and the temple area ($250); clarified that hair is purchased separately.
+- Routed Hair Extensions consultation calls to the website contact form and removed Square booking links from that service page.
+- Updated gallery cells 2 and 6 with the supplied static images while preserving the existing modal interaction.
+- Verified the production build, lint checks, image integrity, cache versioning, service navigation, production contact configuration, and Firebase Hosting deployment.
+
+---
+
 ## v0.20.0 — 2026-10-19
 
 ### Released

@@ -4,6 +4,7 @@ import { serviceCards } from '../serviceCatalog'
 import { teamMembers, type TeamMember } from '../teamCatalog'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
+import { assetUrl } from '../assetUrl'
 
 export default function TeamDetailPage({ member }: { member: TeamMember }) {
   const services = serviceCards.filter(service => member.servicePaths.includes(service.href))
@@ -25,7 +26,7 @@ export default function TeamDetailPage({ member }: { member: TeamMember }) {
               </div>
               <p className="mt-4 text-xs leading-6 text-neutral-500">Choose your service and preferred specialist when booking.</p>
             </div>
-            <img src={member.image} alt={member.name} className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-lg" />
+            <img src={assetUrl(member.image)} alt={member.name} className="aspect-[4/5] w-full rounded-2xl object-cover object-top shadow-lg" />
           </div>
         </section>
 
@@ -50,7 +51,7 @@ export default function TeamDetailPage({ member }: { member: TeamMember }) {
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {teamMembers.filter(other => other.href !== member.href).map(other => (
                 <a key={other.href} href={other.href} aria-label={`Read ${other.name}’s profile`} className="service-link-card group overflow-hidden rounded-2xl bg-white shadow-sm">
-                  <img src={other.image} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover object-top" />
+                  <img src={assetUrl(other.image)} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover object-top" />
                   <div className="p-5">
                     <span className="flex items-center justify-between gap-3 text-lg font-semibold text-black">{other.name}<MdArrowForward className="shrink-0 text-pink transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>
                     <p className="mt-2 text-xs font-medium text-pink">{other.role}</p>
