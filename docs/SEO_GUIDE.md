@@ -1,5 +1,7 @@
 # Local SEO Guide
 
+For the complete technical implementation, environment behavior, content standards, validation rules, and deployment workflow, see [Google Search Implementation and Rules](./GOOGLE_SEARCH_IMPLEMENTATION.md).
+
 The website now provides crawlable HTML, unique metadata, canonical URLs, structured data, a sitemap, local Needham copy, and useful service FAQs. The production build is indexable. Development builds deliberately use `noindex` and block crawlers so the two Firebase environments do not compete in search results.
 
 ## Priority search topics
