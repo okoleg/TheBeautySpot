@@ -19,18 +19,25 @@ export const serviceMenus: ServiceMenu[] = [
   {
     slug: 'body',
     title: 'Body Treatments',
-    intro: 'Explore our body sculpting treatments and wraps, with packages for your ongoing care.',
-    sections: [{ title: 'Body care', treatments: [
+    intro: 'Our body care menu includes individual LPG Endermologie and STYX Body Wrap treatments as well as multi-session packages for clients who prefer a consistent treatment plan. Review each service below, then use the booking page to see current availability.',
+    sections: [{ title: 'Body sculpting & wraps', treatments: [
       {
-        name: 'LPG Endermologie Body Sculpting Treatment', price: '$129', duration: '60 min',
-        description: 'Advanced mechanical stimulation designed to help sculpt the body, smooth the appearance of cellulite, and improve skin tone.',
+        name: 'LPG Endermologie Body Sculpting Treatment', price: '', duration: '60 min',
+        description: 'LPG Endermologie uses advanced mechanical stimulation to work across targeted areas of the body. The treatment is designed to support body contouring, smooth the appearance of cellulite, and improve the look of skin tone. Your specialist can tailor the session to the areas you would like to focus on and explain how a series of appointments may fit your goals.',
         note: 'Each session requires a special bodysuit (Endermowear). We never work directly on bare skin. Endermowear is reusable and available for purchase at our location.',
-        packages: [{ price: '$590', sessions: 5 }, { price: '$850', sessions: 7 }, { price: '$1,150', sessions: 10 }],
       },
       {
-        name: 'STYX Body Wrap', price: '$180', duration: '90 min',
-        description: 'Porous elastic bandages soaked in a special mineral solution are wrapped firmly around areas needing contouring. Designed to visually slenderize the body and visibly tighten the skin.',
-        packages: [{ price: '$840', sessions: 5 }],
+        name: 'LPG Body Packages', price: '', duration: '45 min per session',
+        description: 'LPG Body Packages are available in five-, seven-, and ten-session plans for clients who want a consistent body-sculpting routine. Each 45-minute appointment uses LPG Endermologie mechanical stimulation to focus on selected areas and support smoother-looking skin and visible contouring. Your specialist can discuss the treatment schedule, target areas, and package length that best match your goals.',
+        note: 'Endermowear is required for every LPG session and is available for purchase at the studio. The reusable bodysuit should be brought to each appointment in your package.',
+      },
+      {
+        name: 'STYX Body Wrap', price: '', duration: '90 min',
+        description: 'The STYX Body Wrap uses porous elastic bandages soaked in a specialized mineral solution and applied firmly to selected areas. This European body-wrapping treatment is designed to support visible contouring, help the skin look tighter, and create a smoother overall appearance. The 90-minute appointment gives your specialist time to apply the wrap carefully and provide a comfortable, unhurried experience.',
+      },
+      {
+        name: 'STYX Body Wrap Package of 5', price: '', duration: '90 min per session',
+        description: 'The STYX Body Wrap Package includes five 90-minute appointments for clients who want to make body wrapping part of an ongoing care plan. Each session uses mineral-soaked elastic bandages on selected areas to support visible contouring and smoother-looking skin. Scheduling a series makes it easier to follow a consistent routine while your specialist monitors your preferences and adjusts the focus areas when appropriate.',
       },
     ] }],
   },

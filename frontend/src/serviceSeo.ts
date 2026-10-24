@@ -50,12 +50,14 @@ export const serviceSeo: Record<string, ServiceSeoContent> = {
   },
   '/treatments/body': {
     title: 'LPG Body Sculpting & Body Wraps in Needham, MA',
-    description: 'Explore LPG Endermologie body sculpting and STYX body wraps in Needham, MA, with individual sessions and treatment packages available.',
-    intro: 'Our Needham studio offers LPG Endermologie body sculpting and STYX body wrapping for clients seeking smoother-looking skin, visible contouring, and ongoing body care. Individual appointments and multi-session packages are available.',
+    description: 'Explore LPG Endermologie body sculpting and STYX body wraps in Needham, MA, including individual treatments and multi-session body care packages.',
+    intro: 'Our Needham studio offers LPG Endermologie body sculpting and STYX body wrapping for clients interested in smoother-looking skin, visible contouring, and consistent body care. Choose an individual appointment or explore multi-session LPG and STYX packages based on your preferred treatment plan.',
     faqs: [
-      { question: 'What should I wear for LPG Endermologie?', answer: 'Each LPG session requires reusable Endermowear. Treatment is not performed directly on bare skin, and the special bodysuit is available for purchase at the studio.' },
-      { question: 'Are LPG treatment packages available?', answer: 'Yes. Five-, seven-, and ten-session LPG packages are available for clients planning ongoing care.' },
-      { question: 'How long is a STYX Body Wrap appointment?', answer: 'A STYX Body Wrap appointment is scheduled for approximately 90 minutes.' },
+      { question: 'What should I wear for an LPG Endermologie appointment?', answer: 'Every LPG Endermologie session requires reusable Endermowear because treatment is not performed directly on bare skin. The special bodysuit is available for purchase at our Needham studio and should be brought back for each appointment.' },
+      { question: 'Which LPG Body Packages are available?', answer: 'Square currently offers LPG Body Packages with five, seven, or ten sessions. Package appointments are scheduled for approximately 45 minutes each, and your specialist can help you choose a plan based on your preferred areas and routine.' },
+      { question: 'What happens during a STYX Body Wrap?', answer: 'Porous elastic bandages soaked in a specialized mineral solution are applied firmly to selected areas. The treatment is designed to support visible contouring and help the skin look smoother and tighter.' },
+      { question: 'How long is a STYX Body Wrap appointment?', answer: 'An individual STYX Body Wrap and each appointment in the five-session package are scheduled for approximately 90 minutes.' },
+      { question: 'Where are body sculpting treatments offered?', answer: 'LPG Endermologie and STYX Body Wrap appointments are offered at The Beauty Spot, 123 Highland Ave, Floor 3, Needham, MA 02494. Use the booking links on this page to see current appointment availability.' },
     ],
   },
   '/treatments/makeup': {
