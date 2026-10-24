@@ -33,15 +33,12 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
               <p className="mt-6 text-lg leading-8 text-neutral-600">{seoContent.intro}</p>
               <div className="mt-8">
                 {service.contactOnly ? (
-                  <div className="flex flex-col items-start gap-4">
-                    <a href="/#contact-form" className="btn-primary gap-2">Schedule a consultation<MdArrowForward aria-hidden="true" /></a>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <a href={PHONE_HREF} aria-label={`Call ${PHONE}`} className="inline-flex items-center gap-2 text-base font-semibold text-black transition-colors hover:text-pink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white"><MdCall size={18} aria-hidden="true" /></span>
-                        {PHONE}
-                      </a>
-                      <a href="/#contact-form" className="inline-flex items-center gap-2 rounded-full border border-pink px-4 py-2 text-sm font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">Contact us<MdArrowForward aria-hidden="true" /></a>
-                    </div>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a href={PHONE_HREF} aria-label={`Schedule a consultation by calling ${PHONE}`} className="btn-primary flex-wrap gap-x-3 gap-y-1 text-center">
+                      <span>Schedule a consultation</span>
+                      <span className="inline-flex items-center gap-1.5 whitespace-nowrap"><MdCall size={19} aria-hidden="true" />{PHONE}</span>
+                    </a>
+                    <a href="/#contact-form" className="inline-flex items-center gap-2 rounded-full border border-pink px-4 py-2 text-sm font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">Contact us<MdArrowForward aria-hidden="true" /></a>
                   </div>
                 ) : service.comingSoon ? (
                   <a href="/#contact-form" className="btn-primary gap-2">Contact us<MdArrowForward aria-hidden="true" /></a>
