@@ -1,5 +1,6 @@
-import { MdArrowBack, MdArrowForward, MdCalendarMonth, MdExpandMore } from 'react-icons/md'
+import { MdArrowBack, MdArrowForward, MdCalendarMonth, MdCall, MdExpandMore } from 'react-icons/md'
 import { getBookingUrl } from '../booking'
+import { PHONE, PHONE_HREF } from '../data'
 import { serviceCards, type ServiceCard } from '../serviceCatalog'
 import { serviceMenus } from '../serviceMenus'
 import { serviceSeo } from '../serviceSeo'
@@ -30,14 +31,25 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
               <p className="mb-4 mt-8 text-xs font-bold uppercase tracking-[3px] text-pink">The Beauty Spot · Treatments</p>
               <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">{service.title}<span className="mt-2 block text-2xl sm:text-3xl">in Needham, MA</span></h1>
               <p className="mt-6 text-lg leading-8 text-neutral-600">{seoContent.intro}</p>
-              <div className="mt-8 flex flex-wrap items-center gap-5">
-                {service.comingSoon || service.contactOnly ? (
-                  <a href="/#contact-form" className="btn-primary gap-2">{service.contactOnly ? 'Schedule a consultation' : 'Contact us'}<MdArrowForward aria-hidden="true" /></a>
+              <div className="mt-8">
+                {service.contactOnly ? (
+                  <div className="flex flex-col items-start gap-4">
+                    <a href="/#contact-form" className="btn-primary gap-2">Schedule a consultation<MdArrowForward aria-hidden="true" /></a>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <a href={PHONE_HREF} aria-label={`Call ${PHONE}`} className="inline-flex items-center gap-2 text-base font-semibold text-black transition-colors hover:text-pink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">
+                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-black text-white"><MdCall size={18} aria-hidden="true" /></span>
+                        {PHONE}
+                      </a>
+                      <a href="/#contact-form" className="inline-flex items-center gap-2 rounded-full border border-pink px-4 py-2 text-sm font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">Contact us<MdArrowForward aria-hidden="true" /></a>
+                    </div>
+                  </div>
+                ) : service.comingSoon ? (
+                  <a href="/#contact-form" className="btn-primary gap-2">Contact us<MdArrowForward aria-hidden="true" /></a>
                 ) : (
-                  <>
+                  <div className="flex flex-wrap items-center gap-5">
                     <a href={bookingUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2"><MdCalendarMonth size={20} aria-hidden="true" />Book now</a>
                     <a href={bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-pink px-5 py-2.5 text-base font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">{service.bookingCategory === 'specials' ? 'View current specials' : 'View prices'}<MdArrowForward aria-hidden="true" /></a>
-                  </>
+                  </div>
                 )}
               </div>
             </div>
