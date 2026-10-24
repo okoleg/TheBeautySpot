@@ -39,11 +39,13 @@ export const serviceSeo: Record<string, ServiceSeoContent> = {
   '/treatments/brows': {
     title: 'Brow Lamination, Tinting & Shaping in Needham, MA',
     description: 'Book brow lamination, tinting, shaping, henna, and waxing in Needham, MA for polished, personalized eyebrow definition.',
-    intro: 'Visit The Beauty Spot for brow lamination, tinting, shaping, henna, and waxing in Needham, Massachusetts. Our artists personalize the shape and color to complement your features and preferred level of definition.',
+    intro: 'Visit The Beauty Spot for eyebrow lamination, brow tinting, shaping, henna, and waxing in Needham, Massachusetts. Our brow artists work with your natural growth pattern and personalize the shape, color, and level of definition to complement your features.',
     faqs: [
-      { question: 'How long does brow lamination last?', answer: 'Brow lamination generally lasts about four to six weeks, depending on your hair growth cycle and aftercare.' },
-      { question: 'What is included in eyebrow design?', answer: 'Eyebrow design may include shaping with techniques such as waxing and tinting to create a polished, natural-looking result.' },
-      { question: 'Do you offer brow tinting without shaping?', answer: 'Yes. Eyebrow tint is available as a standalone appointment.' },
+      { question: 'How long does eyebrow lamination last?', answer: 'Eyebrow lamination generally lasts about four to six weeks. Your individual result depends on your natural brow-hair growth cycle, skin care routine, and aftercare. Avoiding excess moisture and steam immediately after the appointment can help protect the finished shape.' },
+      { question: 'What is included in a customized eyebrow design?', answer: 'An eyebrow design appointment may include brow mapping, shaping, waxing, and tinting based on your natural brows and desired result. Your artist will discuss the shape and level of definition with you before beginning the service.' },
+      { question: 'Can I book eyebrow tinting without shaping?', answer: 'Yes. Eyebrow Tint is available as a standalone appointment at our Needham studio. It adds color and definition to the natural brow hairs without including waxing or reshaping.' },
+      { question: 'What is the difference between regular brow tint and henna?', answer: 'Traditional brow tint primarily colors the brow hairs. Henna can add color to both the hairs and the skin beneath them, which may create a fuller, more filled-in appearance. Your brow artist can help you choose the option that fits your desired result.' },
+      { question: 'Where can I book brow lamination and eyebrow shaping in Needham?', answer: 'Brow appointments are available at The Beauty Spot, 123 Highland Ave, Floor 3, Needham, MA 02494. Use the booking link on this page to review current prices and appointment availability.' },
     ],
   },
   '/treatments/body': {

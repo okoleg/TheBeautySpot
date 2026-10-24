@@ -40,13 +40,13 @@ export const serviceMenus: ServiceMenu[] = [
     intro: 'Find your look with brow shaping, tinting, lash lifts, and extensions—from classic to mega volume.',
     sections: [
       { title: 'Brows & tinting', treatments: [
-        { name: 'Eyebrow Lamination + Tint', price: '$120–$140', duration: '60 min', description: 'A perm for brow hairs, leaving them fuller, fluffier, and easier to maintain. Lasts about 4–6 weeks.' },
-        { name: 'Brow Shaping + Henna', price: '$90', duration: '60 min', description: 'Brow shaping and tinting with natural henna for rich color and fuller, more defined brows. Color lasts on both the skin and hair.' },
-        { name: 'Eyebrow Design', price: '$60–$80', duration: '30 min', description: 'Brow shaping using techniques including waxing and tinting with dye to enhance your features and create a neat, natural look.' },
-        { name: 'Eyebrow Tint (Only)', price: '$40', duration: '30 min', description: 'Tinting of your brows.' },
-        { name: 'Brow Wax', price: '$30', duration: '30 min' },
-        { name: 'Eyelash Tint (Only)', price: '$25', duration: '25 min' },
-        { name: 'Upper Lip Wax', price: '$20', duration: '10 min' },
+        { name: 'Eyebrow Lamination + Tint', price: '$120–$140', duration: '60 min', description: 'Eyebrow lamination smooths and redirects the brow hairs to create a fuller, fluffier, and more polished shape. A customized brow tint adds definition and helps lighter hairs appear more visible. Results generally last four to six weeks, depending on your natural hair growth and aftercare.' },
+        { name: 'Brow Shaping + Henna', price: '$90', duration: '60 min', description: 'This personalized brow service combines careful eyebrow shaping with henna tint for richer color and a more defined appearance. Henna colors both the brow hairs and the skin beneath them, helping create the look of fuller brows while complementing your natural features.' },
+        { name: 'Eyebrow Design', price: '$60–$80', duration: '30 min', description: 'Our customized eyebrow design appointment uses brow mapping, shaping, waxing, and tinting as appropriate for your brows. Your artist considers your natural growth pattern and facial proportions to create a clean, balanced shape that still feels like you.' },
+        { name: 'Eyebrow Tint (Only)', price: '$40', duration: '30 min', description: 'A custom eyebrow tint darkens and defines the natural brow hairs without changing their shape. This standalone brow tinting service is a helpful choice for lighter, faded, or less-visible brows and can reduce the need for daily brow makeup.' },
+        { name: 'Brow Wax', price: '$30', duration: '30 min', description: 'Professional brow waxing removes unwanted hair and refines the eyebrow shape for a clean, polished finish. Your brow artist follows your natural shape and discusses your preferences before waxing.' },
+        { name: 'Eyelash Tint (Only)', price: '$25', duration: '25 min', description: 'Eyelash tinting darkens the natural lashes from root to tip, helping them look more defined without mascara. This standalone lash tint is ideal for clients who want a simple, low-maintenance enhancement to their natural lashes.' },
+        { name: 'Upper Lip Wax', price: '$20', duration: '10 min', description: 'Upper lip waxing provides quick, precise facial hair removal and leaves the area looking smooth and clean. It can be booked on its own or alongside a brow shaping, brow tinting, or eyebrow lamination appointment.' },
       ] },
       { title: 'Lashes · full sets & treatments', treatments: [
         { name: 'Classic Full Set', price: '$170–$190', duration: '2 hr', description: 'One extension is applied to each isolated natural lash, with various lengths, widths, and curls available. About 120–150 extensions are applied to each eye.' },
