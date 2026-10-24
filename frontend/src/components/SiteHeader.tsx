@@ -37,7 +37,7 @@ export default function SiteHeader() {
         <a href="/" aria-label="The Beauty Spot home" className="min-w-0">
           <img src={assetUrl('/TheBeautySpotLogo.svg')} alt="The Beauty Spot" className="h-auto w-40 max-w-full sm:w-64 xl:w-80 object-contain" />
         </a>
-        <nav aria-label="Main navigation" className="hidden lg:flex gap-4 text-base text-black xl:gap-8 xl:text-lg">
+        <nav aria-label="Main navigation" className="hidden lg:flex gap-4 text-base font-bold text-black xl:gap-8 xl:text-lg">
           {links.map(({ label, href }) => (
             <a key={label} href={href} className="whitespace-nowrap hover:text-pink transition-colors">{label}</a>
           ))}
@@ -55,7 +55,7 @@ export default function SiteHeader() {
       </div>
       <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!menuOpen} className="border-t border-neutral-200 bg-white px-4 py-3 lg:hidden">
         {links.map(({ label, href }) => (
-          <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-3 py-3 text-base text-black hover:bg-pink/10">{label}</a>
+          <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-3 py-3 text-base font-bold text-black hover:bg-pink/10">{label}</a>
         ))}
         <a href={PHONE_HREF} className="block px-3 py-3 text-sm text-black">{PHONE}</a>
       </nav>
