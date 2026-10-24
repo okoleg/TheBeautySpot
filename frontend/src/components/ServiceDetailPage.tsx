@@ -89,7 +89,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
             <div className="mt-10 border-t border-pink/30 pt-8">
               <div className="grid gap-8 md:grid-cols-3">
                 {service.overview.details.map(detail => (
-                  <div key={detail.title}>
+                  <div key={detail.title} className={service.contactOnly ? 'rounded-2xl border border-pink/25 bg-pink-soft p-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md' : ''}>
                     <h3 className="text-xl font-bold text-black">{detail.title}</h3>
                     <p className="mt-3 text-sm leading-7 text-neutral-600">{detail.text}</p>
                   </div>
