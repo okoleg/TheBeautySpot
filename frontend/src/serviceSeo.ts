@@ -18,22 +18,26 @@ export const serviceSeo: Record<string, ServiceSeoContent> = {
   },
   '/treatments/skin-care': {
     title: 'Facials & Skin Care in Needham, MA | The Beauty Spot',
-    description: 'Book customized facials and advanced skin care in Needham, MA, including Glo2Facial, buccal massage, DMK Enzyme Therapy, peels, and microneedling.',
-    intro: 'Our licensed estheticians provide personalized facials and advanced skin care in Needham, Massachusetts. Treatment options include Glo2Facial, buccal facial massage, DMK Enzyme Therapy, deep pore cleansing, microneedling, corrective peels, and thoughtful add-ons.',
+    description: 'Explore customized facials and skin care in Needham, MA, including Glo2Facial, buccal massage, DMK Enzyme Therapy, dermaplaning, peels, and microneedling.',
+    intro: 'Our licensed estheticians provide personalized facials and advanced skin care in Needham, Massachusetts. The menu includes Glo2Facial, buccal facial massage, DMK Enzyme Therapy, deep pore cleansing, microneedling, corrective peels, dermaplaning, a facial for men, and focused add-ons. A dedicated consultation is available when you would like professional guidance before selecting a treatment.',
     faqs: [
-      { question: 'Which facial is best for a first visit?', answer: 'The Beauty Spot Facial is customized to your skin needs and is designed as a helpful starting point for first-time clients.' },
-      { question: 'Do you offer consultations for skin concerns?', answer: 'Yes. Your esthetician will discuss your goals and current skin condition before recommending a suitable treatment.' },
+      { question: 'Which facial is best for a first visit?', answer: 'The Beauty Spot Facial is customized to your current skin and makes a helpful starting point for first-time clients. You can also schedule a 15-minute Skin Care Consultation if you would like guidance before choosing a full treatment.' },
+      { question: 'What is the difference between a Dermaplaning Facial and the add-on?', answer: 'The Dermaplaning Facial is a complete 75-minute facial that includes professional dermaplaning and customized finishing care. The 30-minute Dermaplaning Add-on can be included with another eligible facial after your esthetician confirms that it suits your skin.' },
+      { question: 'How is a corrective peel selected?', answer: 'Your esthetician reviews your skin condition, sensitivities, goals, and recent treatments before recommending BioRePeel, azelaic, Vitamin C, Yellow Peel, or another suitable plan. Preparation and aftercare instructions depend on the selected peel.' },
+      { question: 'Can I book a skin care consultation without a facial?', answer: 'Yes. The standalone 15-minute consultation is intended for discussing your routine, priorities, sensitivities, and suitable professional treatments before committing to a facial.' },
       { question: 'Where are facial appointments provided?', answer: 'Skin care appointments are provided at our studio at 123 Highland Ave, Floor 3, in Needham, MA.' },
     ],
   },
   '/treatments/lashes': {
     title: 'Lash Extensions & Lash Lifts in Needham, MA | The Beauty Spot',
-    description: 'Book lash extensions, lash lifts, tinting, and fills in Needham, MA. Choose classic, volume, mega-volume, or wet-effect lash styles.',
-    intro: 'Our lash artists provide customized lash extensions, lash lifts, tinting, and maintenance fills in Needham, Massachusetts. Choose from classic, volume, mega-volume, and wet-effect styles tailored to your natural lashes and preferred look.',
+    description: 'Explore lash extensions, fills, lash lifts, tinting, and removal in Needham, MA, with classic, volume, mega-volume, and wet-effect styling.',
+    intro: 'Our lash artists provide customized lash extensions, maintenance fills, lash lift and tint, eyelash tinting, and professional extension removal in Needham, Massachusetts. Choose Classic, Volume, Wet Effect, or Mega Volume styling, with fill appointments organized by the number of weeks since your previous visit.',
     faqs: [
-      { question: 'How often should I schedule a lash fill?', answer: 'Fill timing depends on your natural lash cycle and retention. We offer maintenance options at one to two weeks, three weeks, and four weeks.' },
+      { question: 'How often should I schedule a lash fill?', answer: 'Fill timing depends on your natural lash cycle and retention. Our menu includes maintenance appointments for one to two weeks, three weeks, and four weeks after the prior service.' },
+      { question: 'Can you fill lash extensions applied by another salon?', answer: 'Our listed fill appointments are reserved for extensions originally applied by The Beauty Spot lash artists. Please schedule professional removal and a new full set if you currently wear work from another salon.' },
       { question: 'What is the difference between classic and volume lashes?', answer: 'Classic sets apply one extension to each isolated natural lash. Volume sets use multiple ultra-fine lashes to create a fuller result.' },
       { question: 'How long does a lash lift last?', answer: 'A lash lift and tint generally lasts about six to eight weeks, although individual results vary with the natural lash cycle.' },
+      { question: 'Should I remove lash extensions at home?', answer: 'No. Pulling or picking at extensions can place unnecessary stress on the natural lashes. A professional removal appointment uses adhesive remover and includes a complimentary lash bath.' },
     ],
   },
   '/treatments/brows': {
@@ -62,12 +66,14 @@ export const serviceSeo: Record<string, ServiceSeoContent> = {
   },
   '/treatments/makeup': {
     title: 'Professional Makeup Artist in Needham, MA | The Beauty Spot',
-    description: 'Book professional makeup in Needham, MA for natural, evening, bridal, special-event, and photoshoot looks.',
-    intro: 'Our professional makeup artist creates natural, evening, bridal, special-event, and photoshoot makeup in Needham, Massachusetts. Each look is personalized for your features, style, occasion, and desired finish.',
+    description: 'Explore professional bridal, commercial, photoshoot, nude day, and evening soft glam makeup appointments in Needham, MA.',
+    intro: 'Our professional makeup artist creates personalized bridal, commercial, photo shoot, nude daytime, and evening soft glam makeup in Needham, Massachusetts. Each 90-minute appointment considers your features, personal style, wardrobe, event setting, lighting, and desired finish.',
     faqs: [
-      { question: 'What types of makeup appointments are available?', answer: 'We offer natural, evening, bridal, special-event, and photoshoot makeup looks with a personalized consultation.' },
-      { question: 'Can I bring inspiration photos?', answer: 'Yes. Inspiration images are helpful when discussing the colors, finish, and level of glam you prefer.' },
-      { question: 'How do I plan makeup for a special event?', answer: 'Book online or contact our studio with your event date and preferred look so we can help you plan the appointment.' },
+      { question: 'What types of makeup appointments are available?', answer: 'The current menu includes Bridal Makeup, Makeup for Commercials, Makeup for Photo Shoots, Nude Day Makeup, and Evening Soft Glam Makeup. Each appointment is scheduled for approximately 90 minutes.' },
+      { question: 'Can I bring inspiration photos?', answer: 'Yes. Inspiration images help communicate the colors, complexion finish, eye style, and level of definition you prefer. Information about your outfit, hair, venue, or production concept is also useful.' },
+      { question: 'What is the difference between Nude Day Makeup and Evening Soft Glam?', answer: 'Nude Day Makeup focuses on fresh skin and subtle definition for an understated daytime finish. Evening Soft Glam adds more luminosity and refined definition while keeping the overall look balanced and wearable.' },
+      { question: 'How should I prepare for a makeup appointment?', answer: 'Arrive with a clean face unless your artist gives you different instructions. Share relevant sensitivities and bring reference photos plus details about your clothing, hair, lighting, or event schedule.' },
+      { question: 'Where are professional makeup appointments offered?', answer: 'Makeup appointments are available at The Beauty Spot, 123 Highland Ave, Floor 3, Needham, MA 02494. Use the booking link on this page to review current availability.' },
     ],
   },
   '/treatments/hair-extensions': {
