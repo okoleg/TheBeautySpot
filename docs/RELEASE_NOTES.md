@@ -2,6 +2,20 @@
 
 ---
 
+## v0.22.0 — 2026-10-24
+
+### Released
+- Standardized all seven team-member cards into a responsive two-column mobile and four-column desktop grid using the same rounded image, white footer, shadow, and hover treatment as the service cards.
+- Matched the desktop width of About Us, Our Team, and Meet Your Specialists to the Our Services container.
+- Made the Why Us and Special Offers areas more compact while preserving their content and calls to action.
+- Increased desktop service-card image height and kept service descriptions aligned consistently.
+- Updated the main navigation to Services, About, Team, Visit, and Contact; increased its font size and adjusted desktop phone spacing.
+- Replaced the service-detail “All services” text link with a prominent “View all services” button and moved it closer to the header.
+- Restyled View Prices and View Current Specials as larger pink outlined buttons.
+- Verified development and production builds, lint checks, and Firebase Hosting deployments during the update cycle.
+
+---
+
 ## v0.21.0 — 2026-10-23
 
 ### Released

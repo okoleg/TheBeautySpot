@@ -1,4 +1,4 @@
-import { MdArrowForward, MdCalendarMonth, MdExpandMore } from 'react-icons/md'
+import { MdArrowBack, MdArrowForward, MdCalendarMonth, MdExpandMore } from 'react-icons/md'
 import { getBookingUrl } from '../booking'
 import { serviceCards, type ServiceCard } from '../serviceCatalog'
 import { serviceMenus } from '../serviceMenus'
@@ -21,10 +21,10 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
     <div className="flex min-h-screen flex-col bg-white">
       <SiteHeader />
       <main>
-        <section className="bg-pink-soft px-6 py-12 md:py-20">
+        <section className="bg-pink-soft px-6 pb-12 pt-6 md:pb-20 md:pt-8">
           <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:gap-16">
             <div>
-              <a href="/#services" className="text-sm text-neutral-600 underline underline-offset-4 hover:text-black">All services</a>
+              <a href="/#services" className="inline-flex items-center gap-2 rounded-full border border-black bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition-colors hover:bg-black hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink"><MdArrowBack aria-hidden="true" />View all services</a>
               <p className="mb-4 mt-8 text-xs font-bold uppercase tracking-[3px] text-pink">The Beauty Spot · Treatments</p>
               <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">{service.title}</h1>
               <p className="mt-6 text-lg leading-8 text-neutral-600">{service.desc}</p>
@@ -34,7 +34,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
                 ) : (
                   <>
                     <a href={bookingUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2"><MdCalendarMonth size={20} aria-hidden="true" />Book now</a>
-                    <a href={bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">{service.bookingCategory === 'specials' ? 'View current specials' : 'View prices'}<MdArrowForward aria-hidden="true" /></a>
+                    <a href={bookingUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-pink px-5 py-2.5 text-base font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">{service.bookingCategory === 'specials' ? 'View current specials' : 'View prices'}<MdArrowForward aria-hidden="true" /></a>
                   </>
                 )}
               </div>

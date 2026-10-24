@@ -196,9 +196,9 @@ function App() {
       </section>
 
       {/* STATS */}
-      <section className="bg-black px-6 py-16 flex flex-col items-center gap-10">
+      <section className="bg-black px-6 py-10 flex flex-col items-center gap-7 md:py-12">
         {/* Why us */}
-        <div className="text-center max-w-2xl flex flex-col gap-4">
+        <div className="text-center max-w-2xl flex flex-col gap-3">
           <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Why Us?</p>
           <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
             Your favorite destination for beauty
@@ -229,7 +229,7 @@ function App() {
       </section>
 
       {/* OFFERS */}
-      <section className="bg-black py-20 px-6 flex flex-col items-center gap-10">
+      <section className="bg-black px-6 pb-12 pt-8 flex flex-col items-center gap-6 md:pb-14 md:pt-10">
         <div className="text-center flex flex-col gap-3">
           <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Limited Time</p>
           <h2 className="text-4xl font-bold text-white tracking-tight">Special Offers</h2>
@@ -241,12 +241,12 @@ function App() {
             <FaInstagram size={20} /> @thebeautyspot_ma
           </a>
         </div>
-        <div className="relative p-5">
+        <div className="relative p-3">
           {/* Top-left bracket */}
           <span className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white/70" />
           {/* Bottom-right bracket */}
           <span className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white/70" />
-        <div className="bg-pink rounded-none px-14 py-12 flex flex-col items-center gap-3 text-center shadow-[0_0_60px_rgba(255,102,196,0.3)]">
+        <div className="bg-pink rounded-none px-10 py-8 flex flex-col items-center gap-2 text-center shadow-[0_0_60px_rgba(255,102,196,0.3)] sm:px-14">
           <h3 className="text-2xl font-bold tracking-[4px] uppercase text-black">Special Deals</h3>
           <div className="w-8 h-px bg-black/30 my-1" />
           <span className="text-6xl font-bold text-black tracking-tight leading-none">$25 OFF</span>
@@ -267,7 +267,7 @@ function App() {
 
       {/* ABOUT */}
       <section className="py-24 px-6 bg-gradient-to-br from-black via-neutral-900 to-black" id="about" style={{ scrollMarginTop: '7rem' }}>
-        <div className="max-w-5xl mx-auto flex flex-col gap-10">
+        <div className="max-w-6xl mx-auto flex flex-col gap-10">
           {/* Title — full width */}
           <div className="text-center flex flex-col gap-3">
             <p className="text-xs font-bold tracking-[3px] uppercase text-pink">Our Story</p>
@@ -295,7 +295,7 @@ function App() {
 
       {/* TEAM */}
       <section id="team" className="scroll-mt-28 py-24 px-6 bg-white">
-        <div className="max-w-5xl mx-auto flex flex-col gap-12">
+        <div className="max-w-6xl mx-auto flex flex-col gap-12">
           {/* Title */}
           <div className="text-center">
             <p className="text-xs font-bold tracking-[3px] uppercase text-pink mb-3">The People Behind The Magic</p>

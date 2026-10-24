@@ -12,7 +12,8 @@ export default function SiteHeader() {
   const links = [
     { label: 'Services', href: '/#services' },
     { label: 'About', href: '/#about' },
-    { label: 'Location & Hours', href: '/#contact' },
+    { label: 'Team', href: '/#team' },
+    { label: 'Visit', href: '/#contact' },
     { label: 'Contact', href: '/#contact-form' },
   ]
 
@@ -35,12 +36,12 @@ export default function SiteHeader() {
         <a href="/" aria-label="The Beauty Spot home" className="min-w-0">
           <img src={assetUrl('/TheBeautySpotLogo.svg')} alt="The Beauty Spot" className="h-auto w-40 max-w-full sm:w-64 xl:w-80 object-contain" />
         </a>
-        <nav aria-label="Main navigation" className="hidden lg:flex gap-4 text-sm text-neutral-500 xl:gap-8 xl:text-base">
+        <nav aria-label="Main navigation" className="hidden lg:flex gap-4 text-base text-neutral-500 xl:gap-8 xl:text-lg">
           {links.map(({ label, href }) => (
             <a key={label} href={href} className="whitespace-nowrap hover:text-pink transition-colors">{label}</a>
           ))}
         </nav>
-        <div className="flex shrink-0 items-center gap-2 xl:gap-12">
+        <div className="flex shrink-0 items-center gap-2 xl:gap-20">
           <a href={PHONE_HREF} aria-label={`Call ${PHONE}`} className="flex items-center gap-2 text-neutral-600 hover:text-pink transition-colors group">
             <span className="flex items-center justify-center w-9 h-9 rounded-full border border-neutral-200 group-hover:border-pink/40 group-hover:bg-pink/5 transition-all"><MdCall size={16} aria-hidden="true" /></span>
             <span className="hidden xl:block text-sm font-medium tracking-wide">{PHONE}</span>
@@ -53,7 +54,7 @@ export default function SiteHeader() {
       </div>
       <nav id="mobile-navigation" aria-label="Mobile navigation" hidden={!menuOpen} className="border-t border-neutral-200 bg-white px-4 py-3 lg:hidden">
         {links.map(({ label, href }) => (
-          <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-3 py-3 text-sm text-neutral-700 hover:bg-pink/10">{label}</a>
+          <a key={label} href={href} onClick={() => setMenuOpen(false)} className="block rounded-lg px-3 py-3 text-base text-neutral-700 hover:bg-pink/10">{label}</a>
         ))}
         <a href={PHONE_HREF} className="block px-3 py-3 text-sm text-neutral-700">{PHONE}</a>
       </nav>
