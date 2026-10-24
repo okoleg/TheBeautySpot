@@ -19,6 +19,7 @@ export default function TeamDetailPage({ member }: { member: TeamMember }) {
               <p className="mb-4 mt-8 text-xs font-bold uppercase tracking-[3px] text-pink">The Beauty Spot · Meet the team</p>
               <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">{member.name}</h1>
               <p className="mt-4 text-sm font-medium text-pink">{member.role}</p>
+              <p className="mt-2 text-sm font-medium text-neutral-500">Beauty professional at The Beauty Spot in Needham, MA</p>
               <p className="mt-6 text-lg leading-8 text-neutral-600">{member.summary}</p>
               <div className="mt-8 flex flex-wrap items-center gap-5">
                 <a href={getBookingUrl(member.bookingCategory)} target="_blank" rel="noreferrer" className="btn-primary gap-2"><MdCalendarMonth size={20} aria-hidden="true" />Book now</a>

@@ -7,7 +7,7 @@ import '../App.css'
 
 export default function SiteHeader() {
   useHashScroll()
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
+  const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const links = [
     { label: 'Services', href: '/#services' },
@@ -24,6 +24,7 @@ export default function SiteHeader() {
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('keydown', onKeyDown)
+    onScroll()
     return () => {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('keydown', onKeyDown)

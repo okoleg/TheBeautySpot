@@ -2,24 +2,32 @@ import { useEffect, useRef, useState, type FormEvent } from 'react'
 import { MdArrowForward, MdCall, MdCheckCircle } from 'react-icons/md'
 import { PHONE, PHONE_HREF } from '../data'
 import { serviceCards } from '../serviceCatalog'
+import { SITE_URL } from '../seo'
 
 const recipient = import.meta.env.VITE_CONTACT_EMAIL?.trim()
 const inputClass = 'mt-2 w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-800 outline-none transition-colors placeholder:text-neutral-400 focus:border-pink focus:ring-2 focus:ring-pink/20 disabled:opacity-60'
 
 export default function ContactForm() {
   const [sending, setSending] = useState(false)
-  const [submitted] = useState(() => new URLSearchParams(window.location.search).get('contact') === 'submitted')
+  const [submitted, setSubmitted] = useState(false)
   const inFlight = useRef(false)
-  const returnUrl = `${window.location.origin}/?contact=submitted#contact-form`
+  const origin = typeof window === 'undefined' ? SITE_URL : window.location.origin
+  const returnUrl = `${origin}/?contact=submitted#contact-form`
 
   useEffect(() => {
+    const submittedTimer = window.setTimeout(() => {
+      setSubmitted(new URLSearchParams(window.location.search).get('contact') === 'submitted')
+    }, 0)
     const restore = (event: PageTransitionEvent) => {
       if (!event.persisted) return
       inFlight.current = false
       setSending(false)
     }
     window.addEventListener('pageshow', restore)
-    return () => window.removeEventListener('pageshow', restore)
+    return () => {
+      window.clearTimeout(submittedTimer)
+      window.removeEventListener('pageshow', restore)
+    }
   }, [])
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
@@ -71,7 +79,7 @@ export default function ContactForm() {
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value={returnUrl} />
-          <input type="hidden" name="_url" value={`${window.location.origin}/#contact-form`} />
+          <input type="hidden" name="_url" value={`${origin}/#contact-form`} />
           <p className="mb-6 text-xs text-neutral-500">Fields marked * are required.</p>
           <fieldset className="space-y-5">
             <div className="grid gap-5 sm:grid-cols-2">

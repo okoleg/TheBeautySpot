@@ -2,6 +2,23 @@
 
 ---
 
+## v0.23.0 — 2026-10-24
+
+### Added
+- Added pre-rendered HTML for the homepage, all eight service pages, all seven specialist pages, and the 404 page so search engines receive complete page content without waiting for JavaScript.
+- Added unique page titles, descriptions, canonical URLs, social-sharing metadata, and index controls for production and development.
+- Added structured data for the local beauty salon, services, specialists, and service FAQs.
+- Added a generated XML sitemap, production crawler rules, and development no-index protection.
+- Added local Needham copy, a stable homepage heading, service-specific introductions, and useful FAQs based on the actual services offered.
+- Added privacy-friendly event tracking hooks for booking, phone, directions, Instagram, and successful contact-form actions when the production Google Analytics ID is configured.
+
+### Changed
+- Replaced the Firebase single-page catch-all with clean pre-rendered routes and a real branded 404 page.
+- Added permanent redirects for retired treatment and pricing URLs.
+- Added an owner checklist for Google Search Console, Google Business Profile, reviews, citations, and ongoing search measurement.
+
+---
+
 ## v0.22.0 — 2026-10-24
 
 ### Released

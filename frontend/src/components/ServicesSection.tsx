@@ -6,7 +6,8 @@ export default function ServicesSection() {
     <section id="services" aria-labelledby="services-heading" className="scroll-mt-28 bg-white px-6 py-20 md:py-24">
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-center text-xs font-bold uppercase tracking-[3px] text-pink">What We Offer</p>
-        <h2 id="services-heading" className="mb-10 text-center text-4xl font-bold tracking-tight text-black">Our Services</h2>
+        <h2 id="services-heading" className="text-center text-4xl font-bold tracking-tight text-black">Our Services</h2>
+        <p className="mx-auto mb-10 mt-4 max-w-3xl text-center text-sm leading-7 text-neutral-600 md:text-base">The Beauty Spot is a beauty salon at 123 Highland Ave in Needham, Massachusetts. Our licensed specialists provide personalized skin care, lash extensions, brow treatments, body care, professional makeup, and K-Tip hair extensions in a welcoming studio.</p>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
           {serviceCards.map(({ Icon, title, desc, href, image, imagePosition, comingSoon }) => (
             <a key={href} href={href} aria-label={`Explore ${title}`} className="service-link-card group relative isolate flex aspect-square flex-col justify-end overflow-hidden rounded-2xl bg-black shadow-lg xl:aspect-[4/5]">

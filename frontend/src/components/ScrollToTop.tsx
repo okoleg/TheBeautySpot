@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 import { MdKeyboardArrowUp } from 'react-icons/md'
 
 export default function ScrollToTop() {
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 200)
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 200)
     window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 

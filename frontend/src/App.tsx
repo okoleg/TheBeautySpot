@@ -168,14 +168,18 @@ function App() {
           <div className="animate-float absolute top-16 right-12 text-pink/25 text-xl pointer-events-none select-none hidden md:block">✦</div>
           <div className="animate-float delay-300 absolute bottom-16 right-24 text-pink/20 text-lg pointer-events-none select-none hidden md:block">✦</div>
 
-          <div className="relative z-10 w-full py-2 md:py-3 bg-white/50 backdrop-blur-md flex flex-col items-center justify-center text-center gap-1 md:gap-2 mt-80 md:mt-32" style={{ minHeight: '110px' }}>
-            <h1
-              className="text-xl md:text-4xl font-bold leading-tight tracking-tight text-black"
+          <div className="relative z-10 mt-80 flex min-h-[150px] w-full flex-col items-center justify-center gap-2 bg-white/50 px-4 py-4 text-center backdrop-blur-md md:mt-32 md:min-h-[180px]">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-black md:text-3xl">
+              Beauty Salon &amp; Esthetic Services<br />
+              <span className="text-gradient">in Needham, MA</span>
+            </h1>
+            <p
+              className="text-xs font-medium text-neutral-700 md:text-base"
               style={{ opacity: textVisible ? 1 : 0, transition: 'opacity 0.4s ease-in-out' }}
             >
               {HERO_PHOTOS[textIndex].heading}<br />
-              <span className="text-gradient">{HERO_PHOTOS[textIndex].headingSpan}</span>
-            </h1>
+              <span>{HERO_PHOTOS[textIndex].headingSpan}</span>
+            </p>
             {/* Dots */}
             <div className="flex items-center gap-3">
               {HERO_PHOTOS.map((_, i) => (

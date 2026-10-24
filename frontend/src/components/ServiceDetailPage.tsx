@@ -2,6 +2,7 @@ import { MdArrowBack, MdArrowForward, MdCalendarMonth, MdExpandMore } from 'reac
 import { getBookingUrl } from '../booking'
 import { serviceCards, type ServiceCard } from '../serviceCatalog'
 import { serviceMenus } from '../serviceMenus'
+import { serviceSeo } from '../serviceSeo'
 import { teamMembers } from '../teamCatalog'
 import SiteHeader from './SiteHeader'
 import SiteFooter from './SiteFooter'
@@ -15,6 +16,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
     sections: sourceMenu.sections.filter((_, index) => service.sectionGroup === 'brows' ? index === 0 : service.sectionGroup === 'lashes' ? index > 0 : true),
   }
   const bookingUrl = getBookingUrl(service.bookingCategory)
+  const seoContent = serviceSeo[service.href]
   const makeupArtist = teamMembers.find(member => member.href === '/team/marina-dvortsova')
   const relatedServices = serviceCards.filter(item => item.href !== service.href)
   return (
@@ -26,8 +28,8 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
             <div>
               <a href="/#services" className="inline-flex items-center gap-2 rounded-full border border-black bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-sm transition-colors hover:bg-black hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink"><MdArrowBack aria-hidden="true" />View all services</a>
               <p className="mb-4 mt-8 text-xs font-bold uppercase tracking-[3px] text-pink">The Beauty Spot · Treatments</p>
-              <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">{service.title}</h1>
-              <p className="mt-6 text-lg leading-8 text-neutral-600">{service.desc}</p>
+              <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl">{service.title}<span className="mt-2 block text-2xl sm:text-3xl">in Needham, MA</span></h1>
+              <p className="mt-6 text-lg leading-8 text-neutral-600">{seoContent.intro}</p>
               <div className="mt-8 flex flex-wrap items-center gap-5">
                 {service.comingSoon || service.contactOnly ? (
                   <a href="/#contact-form" className="btn-primary gap-2">{service.contactOnly ? 'Schedule a consultation' : 'Contact us'}<MdArrowForward aria-hidden="true" /></a>
@@ -97,6 +99,24 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
               </div>
             </a>
           ) : null}
+        </section>
+
+        <section className="border-t border-pink/20 bg-white px-6 py-16 md:py-20" aria-labelledby="service-faq-heading">
+          <div className="mx-auto max-w-5xl">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[3px] text-pink">Helpful information</p>
+            <h2 id="service-faq-heading" className="text-3xl font-bold tracking-tight text-black">Frequently asked questions</h2>
+            <div className="mt-8 divide-y divide-neutral-200 border-y border-neutral-200">
+              {seoContent.faqs.map(faq => (
+                <details key={faq.question} className="group py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-black [&::-webkit-details-marker]:hidden">
+                    {faq.question}<MdExpandMore size={24} className="shrink-0 text-pink transition-transform group-open:rotate-180" aria-hidden="true" />
+                  </summary>
+                  <p className="max-w-3xl pt-4 text-sm leading-7 text-neutral-600">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+            <p className="mt-6 text-sm leading-7 text-neutral-600">Have another question? <a href="/#contact-form" className="font-semibold text-pink hover:underline">Contact our Needham beauty team</a>.</p>
+          </div>
         </section>
 
         <section className="border-t border-pink/20 bg-pink-soft px-6 py-16" aria-labelledby="more-services-heading">

@@ -8,10 +8,38 @@
       "**/*.mov",
       "**/*.MOV"
     ],
-    "rewrites": [
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "redirects": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/treatments/brows-lashes",
+        "destination": "/treatments/brows",
+        "type": 301
+      },
+      {
+        "source": "/prices",
+        "destination": "https://book.squareup.com/appointments/antw5jpnbvknj8/location/LQYNBDRWNX0AY/services",
+        "type": 301
+      },
+      {
+        "source": "/services",
+        "destination": "https://book.squareup.com/appointments/antw5jpnbvknj8/location/LQYNBDRWNX0AY/services",
+        "type": 301
+      },
+      {
+        "source": "/services/body",
+        "destination": "https://book.squareup.com/appointments/antw5jpnbvknj8/location/LQYNBDRWNX0AY/services?category_id=KBRXKL266EXB47GHQGMWMFUM",
+        "type": 301
+      },
+      {
+        "source": "/services/skin-care",
+        "destination": "https://book.squareup.com/appointments/antw5jpnbvknj8/location/LQYNBDRWNX0AY/services?category_id=RMAXS3IHXEXXNGELY63W7LLO",
+        "type": 301
+      },
+      {
+        "source": "/services/brows-lashes",
+        "destination": "https://book.squareup.com/appointments/antw5jpnbvknj8/location/LQYNBDRWNX0AY/services?category_id=KUZPT2GPEZ6XEA3NLBXOWEQR",
+        "type": 301
       }
     ]
   }

@@ -1,20 +1,14 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
-import ScrollToTop from './components/ScrollToTop.tsx'
+import ScrollToTop from './components/ScrollToTop'
 import { getBookingUrl, type BookingCategory } from './booking'
-import { serviceCards } from './serviceCatalog'
-import ServiceDetailPage from './components/ServiceDetailPage'
-import { teamMembers } from './teamCatalog'
-import TeamDetailPage from './components/TeamDetailPage'
+import { applySeo } from './seo'
+import { normalizePathname, routeFor } from './routes'
+import { initializeAnalytics } from './analytics'
 
-const pathname = window.location.pathname.replace(/\/$/, '')
-const servicePath = pathname === '/treatments/brows-lashes' ? '/treatments/brows' : pathname
-const service = serviceCards.find(item => item.href === servicePath)
-const teamMember = teamMembers.find(member => member.href === pathname)
-if (service) document.title = `${service.title} | The Beauty Spot`
-if (teamMember) document.title = `${teamMember.name} | The Beauty Spot`
+const pathname = window.location.pathname.replace(/\/$/, '') || '/'
+const normalizedPath = normalizePathname(pathname)
 const isRetiredPricesPage = pathname === '/prices' || pathname === '/services' || pathname.startsWith('/services/')
 if (isRetiredPricesPage) {
   const target = pathname === '/prices' ? window.location.hash.slice(1) : pathname.split('/').at(-1) || ''
@@ -25,16 +19,17 @@ if (isRetiredPricesPage) {
   else if (target.startsWith('makeup')) category = 'makeup'
   window.location.replace(getBookingUrl(category))
 }
-const canonicalUrl = new URL(window.location.href)
-if (servicePath !== pathname) canonicalUrl.pathname = servicePath
-canonicalUrl.searchParams.delete('v')
-if (canonicalUrl.href !== window.location.href) {
-  window.history.replaceState(null, '', `${canonicalUrl.pathname}${canonicalUrl.search}${canonicalUrl.hash}`)
+if (!isRetiredPricesPage) {
+  initializeAnalytics()
+  if (normalizedPath !== pathname) window.history.replaceState(null, '', `${normalizedPath}${window.location.search}${window.location.hash}`)
+  applySeo(normalizedPath)
+  const root = document.getElementById('root')!
+  const application = (
+    <StrictMode>
+      {routeFor(normalizedPath)}
+      <ScrollToTop />
+    </StrictMode>
+  )
+  if (root.hasChildNodes()) hydrateRoot(root, application)
+  else createRoot(root).render(application)
 }
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    {teamMember ? <TeamDetailPage member={teamMember} /> : service ? <ServiceDetailPage service={service} /> : isRetiredPricesPage ? null : <App />}
-    <ScrollToTop />
-  </StrictMode>,
-)
