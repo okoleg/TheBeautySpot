@@ -95,7 +95,14 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
                   </div>
                 ))}
               </div>
-              <a href="/#contact-form" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">{service.contactOnly ? 'Contact us to schedule your consultation' : 'Ask our team'}<MdArrowForward aria-hidden="true" /></a>
+              {service.contactOnly ? (
+                <a href={PHONE_HREF} aria-label={`Schedule a consultation by calling ${PHONE}`} className="btn-primary mt-8 flex-wrap gap-x-3 gap-y-1 text-center">
+                  <span>Schedule a consultation</span>
+                  <span className="inline-flex items-center gap-1.5 whitespace-nowrap"><MdCall size={19} aria-hidden="true" />{PHONE}</span>
+                </a>
+              ) : (
+                <a href="/#contact-form" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-pink hover:underline">Ask our team<MdArrowForward aria-hidden="true" /></a>
+              )}
             </div>
           ) : makeupArtist ? (
             <a href={makeupArtist.href} className="service-link-card group mt-10 grid items-center gap-8 rounded-2xl border-t border-pink/30 pt-8 sm:grid-cols-[180px_1fr]">
