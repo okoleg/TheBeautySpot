@@ -38,7 +38,7 @@ export default function ServiceDetailPage({ service }: { service: ServiceCard })
                       <span>Schedule a consultation</span>
                       <span className="inline-flex items-center gap-1.5 whitespace-nowrap"><MdCall size={19} aria-hidden="true" />{PHONE}</span>
                     </a>
-                    <a href="/#contact-form" className="inline-flex items-center gap-2 rounded-full border border-pink px-4 py-2 text-sm font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">Contact us<MdArrowForward aria-hidden="true" /></a>
+                    <a href="/#contact-form" className="inline-flex items-center gap-2 rounded-full border border-pink px-4 py-2 text-sm font-semibold text-pink transition-colors hover:bg-pink hover:text-black focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-pink">Send us a message<MdArrowForward aria-hidden="true" /></a>
                   </div>
                 ) : service.comingSoon ? (
                   <a href="/#contact-form" className="btn-primary gap-2">Contact us<MdArrowForward aria-hidden="true" /></a>
