@@ -14,7 +14,11 @@ function track(eventName: string, parameters: Record<string, string> = {}) {
 export function initializeAnalytics() {
   if (!measurementId || typeof window === 'undefined') return
   window.dataLayer = window.dataLayer || []
-  window.gtag = (...args: unknown[]) => window.dataLayer.push(args)
+  window.gtag = function gtag() {
+    // Google Tag requires the native Arguments object for queued commands.
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer.push(arguments)
+  }
   window.gtag('js', new Date())
   window.gtag('config', measurementId, { anonymize_ip: true })
 
