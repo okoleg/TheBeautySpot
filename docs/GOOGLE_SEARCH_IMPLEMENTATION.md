@@ -33,12 +33,13 @@ The primary search location is **Needham, Massachusetts**. The primary business 
 
 ### Production
 
-- Firebase URL: `https://thebeautyspotma-af603.web.app`
+- Canonical URL: `https://thebeautyspotma.com`
+- Firebase fallback URL: `https://thebeautyspotma-af603.web.app`
 - Site URL is defined by `VITE_SITE_URL` in `frontend/.env.production`.
 - Public pages receive `index,follow,max-image-preview:large`.
 - `robots.txt` allows crawling and points to the production sitemap.
 - Production contains the configured Google Analytics measurement ID.
-- When the custom domain is connected, `VITE_SITE_URL` must be changed to the preferred HTTPS custom domain before rebuilding and deploying.
+- `VITE_SITE_URL` is set to `https://thebeautyspotma.com`; every production build must preserve this value.
 
 ### Environment rule
 

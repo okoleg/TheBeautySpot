@@ -8,7 +8,8 @@ Firebase Hosting (Google)
 | Key              | Value                                                                      |
 |------------------|----------------------------------------------------------------------------|
 | Production project | `thebeautyspotma-af603` |
-| Production URL | https://thebeautyspotma-af603.web.app |
+| Production URL | https://thebeautyspotma.com |
+| Production Firebase fallback URL | https://thebeautyspotma-af603.web.app |
 | Production Firebase Console | https://console.firebase.google.com/project/thebeautyspotma-af603 |
 | Development project | `thebeautyspot-3e54c` |
 | Development URL | https://thebeautyspot-3e54c.web.app |
@@ -26,7 +27,9 @@ This is a static React site: Firebase Hosting serves the built app, including me
 and service detail pages. Pricing and package links go to Square; the former
 Prices page has been removed (see [booking-links.md](booking-links.md)).
 It currently uses no Firebase database, Authentication, Storage SDK,
-or Analytics SDK. The Firebase web configuration is not required for Hosting.
+or Firebase Analytics SDK. Production analytics is loaded through the Google tag
+with the measurement ID stored in `.env.production`; Firebase web configuration
+is not required for Hosting.
 Contact email continues through FormSubmit, configured separately; a new domain
 may require inbox activation (see [contact-form.md](contact-form.md)).
 

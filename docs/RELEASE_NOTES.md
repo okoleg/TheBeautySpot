@@ -2,6 +2,16 @@
 
 ---
 
+## v0.24.0 — 2026-10-27
+
+### Changed
+- Promoted `https://thebeautyspotma.com` to the canonical production URL.
+- Updated production canonical links, Open Graph and social images, structured-data URLs, contact-form return URLs, `robots.txt`, and every sitemap entry to use the custom domain.
+- Kept the development Firebase environment separate and non-indexable.
+- Updated deployment, contact-form, and Google Search documentation for the custom-domain launch.
+
+---
+
 ## v0.23.0 — 2026-10-24
 
 ### Added

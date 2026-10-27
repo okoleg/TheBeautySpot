@@ -30,8 +30,8 @@ Needham should remain the primary location. Nearby-city terms should appear only
 
 ## Google Search Console
 
-1. Add and verify the final public domain after it is connected. Until then, the production Firebase host can be added as a URL-prefix property.
-2. Submit `/sitemap.xml` in Search Console.
+1. Add and verify `https://thebeautyspotma.com` as a Search Console domain or URL-prefix property.
+2. Submit `https://thebeautyspotma.com/sitemap.xml` in Search Console.
 3. Inspect the homepage and each service URL, confirm that Google can crawl the page, and request indexing after the production SEO release.
 4. Review Page indexing, Core Web Vitals, Enhancements, and Manual actions monthly.
 5. Use the Performance report to compare queries, pages, clicks, impressions, click-through rate, and average position. Record a baseline before changing page copy again.
@@ -78,6 +78,11 @@ The production environment includes the configured Google Analytics measurement 
 
 Make one group of meaningful changes at a time and compare at least four weeks of data. Local rankings also depend on Google Business Profile relevance, distance, and prominence, so website edits alone cannot guarantee a position.
 
-## Custom domain migration later
+## Production domain
 
-When `thebeautyspotma.com` is ready to move, map it to the production Firebase project, set `VITE_SITE_URL` in `.env.production` to the preferred HTTPS domain, rebuild, and redeploy. Then add the domain property in Search Console, submit the new sitemap URL, confirm every canonical uses the custom domain, and redirect all alternate hosts to the preferred host.
+The canonical production domain is `https://thebeautyspotma.com`. Production
+builds must keep `VITE_SITE_URL=https://thebeautyspotma.com`, and every canonical,
+Open Graph URL, structured-data URL, and sitemap entry must use that host. The
+Firebase-provided hostname remains only as a technical fallback and must not be
+submitted as the preferred site in Search Console. Configure
+`www.thebeautyspotma.com` to redirect to the canonical apex domain.

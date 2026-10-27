@@ -2,7 +2,7 @@ import { serviceCards } from './serviceCatalog'
 import { serviceSeo } from './serviceSeo'
 import { teamMembers } from './teamCatalog'
 
-export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://thebeautyspotma-af603.web.app').replace(/\/$/, '')
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://thebeautyspotma.com').replace(/\/$/, '')
 export const IS_PRODUCTION = import.meta.env.MODE === 'production'
 
 export type SeoData = {

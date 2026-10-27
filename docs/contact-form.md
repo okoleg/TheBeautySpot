@@ -54,9 +54,10 @@ alone do not establish email delivery.
 
 ## Production migration
 
-Production now uses `https://thebeautyspotma-af603.web.app`; the old
-`thebeautyspot-3e54c.web.app` site is development. Return URLs use the current
-browser origin automatically. The new production site's native POST and
+Production now uses `https://thebeautyspotma.com`; the Firebase-provided
+`thebeautyspotma-af603.web.app` address is a fallback host, and
+`thebeautyspot-3e54c.web.app` is development. Return URLs use the current browser
+origin automatically. The production site's native POST and
 thank-you replacement passed intercepted desktop/mobile checks. Its real
 diagnostic POST on October 16 reached FormSubmit but was blocked by a Cloudflare
 HTTP 403 security challenge, so delivery on this domain is not yet verified.
